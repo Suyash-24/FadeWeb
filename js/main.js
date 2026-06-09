@@ -333,3 +333,9 @@ modalUsageCopy?.addEventListener('click', () => {
         }, 1200);
     });
 });
+
+// Instantly remove .html from the URL bar for a cleaner aesthetic
+if (window.location.pathname.endsWith('.html')) {
+    const newPath = window.location.pathname.slice(0, -5);
+    window.history.replaceState({}, '', newPath === '' ? '/' : newPath + window.location.search + window.location.hash);
+}
