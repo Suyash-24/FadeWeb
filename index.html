@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade — All-in-one Discord Bot</title>
+    <meta name="description" content="Fade is the all-in-one Discord bot for moderation, security and engagement. Completely free.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+    <canvas id="particles"></canvas>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="nav-pill">
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="Fade Logo" class="brand-logo" style="width: 30px; height: 30px; object-fit: contain; border-radius: 8px;" />
+                <span class="brand-name">fade</span>
+            </a>
+            <div class="nav-links">
+                <a href="commands.html">Commands</a>
+                <a href="faq.html">FAQ</a>
+                <a href="docs.html">Docs</a>
+            </div>
+            <a href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn btn-primary nav-cta">Add to Discord</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-left">
+            <h1 class="hero-title">
+                <span class="hero-name">fade</span>
+            </h1>
+            <p class="hero-tagline">built different.</p>
+            <p class="hero-sub">
+                Moderation, antinuke, leveling & engagement — engineered into one fast, beautiful bot. Everything premium, completely free.
+            </p>
+            <div class="hero-actions">
+                <a href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn btn-primary btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.07.07 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.6 12.6 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.1 14.1 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                    Add to Discord
+                </a>
+                <a href="commands.html" class="btn btn-ghost btn-lg">Explore Commands</a>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <!-- Main Discord embed card -->
+            <div class="float-card float-card-1">
+                <div class="fc-top">
+                    <span class="fc-avatar">F</span>
+                    <span class="fc-name">Fade</span>
+                    <span class="fc-badge">APP</span>
+                    <span class="fc-time">Today at 2:09 PM</span>
+                </div>
+                <div class="fc-embed">
+                    <div class="fc-embed-title">⚠️ Antinuke triggered</div>
+                    <div class="fc-embed-desc">Mass ban detected from <b style="color:#fff">@rogue_admin</b>. Permissions stripped and action reversed automatically.</div>
+                    <div class="fc-fields">
+                        <div class="fc-field"><span>Module</span><b>Ban Protection</b></div>
+                        <div class="fc-field"><span>Threshold</span><b>3 / 10s</b></div>
+                        <div class="fc-field"><span>Action</span><b>Strip + Ban</b></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uptime stat card -->
+            <div class="float-card float-card-2 fc-mini">
+                <div class="fc-stat">
+                    <div class="fc-stat-icon green">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <div class="fc-stat-info">
+                        <span class="fc-stat-val">99.9%</span>
+                        <span class="fc-stat-label">Uptime</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response stat card -->
+            <div class="float-card float-card-3 fc-mini">
+                <div class="fc-stat">
+                    <div class="fc-stat-icon purple">
+                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="fc-stat-info">
+                        <span class="fc-stat-val">&lt;2ms</span>
+                        <span class="fc-stat-label">Response Time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MARQUEE -->
+    <div class="strip">
+        <div class="strip-track">
+            <div class="strip-inner" id="marquee-row1"></div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <span class="stat-num" data-count="1">0</span>
+                    <span class="stat-label">Servers Protected</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-num" data-count="90">0</span>
+                    <span class="stat-label">Commands</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-num" data-count="99" data-suffix=".9%">0</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-item reveal">
+                    <span class="stat-num" data-count="0" data-prefix="$" data-fixed="0">$0</span>
+                    <span class="stat-label">Cost — Free Forever</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="section-label">Features</span>
+                <h2 class="section-title">Built for every kind of community</h2>
+                <p class="section-sub">One bot, every tool. From airtight security to deep engagement systems — designed to feel premium, not bloated.</p>
+            </div>
+
+            <div class="bento">
+                <article class="card reveal">
+                    <div class="card-graphic graphic-radar">
+                        <!-- Radar circles -->
+                        <div class="radar-circle rc-1"></div>
+                        <div class="radar-circle rc-2"></div>
+                        <div class="radar-circle rc-3"></div>
+                        <div class="radar-circle rc-4"></div>
+                        <div class="radar-sweep"></div>
+                        <div class="radar-dot dot-1 pulse-anim"></div>
+                        <div class="radar-dot dot-2 pulse-anim" style="animation-delay: 0.7s;"></div>
+                        <div class="radar-dot dot-3 pulse-anim" style="animation-delay: 1.4s;"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Anti-Raid &amp; Antinuke</h3>
+                        <p>Protect against targeted bot raids with mass join, avatar and account age filters. Instantly lock down your server during active attacks.</p>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-graphic graphic-shield">
+                        <!-- 3D Shield -->
+                        <div class="shield-body">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Moderation</h3>
+                        <p>Remove all dangerous Discord permissions that can be used for malicious reasons through API.</p>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-content">
+                        <h3>AutoMod</h3>
+                        <p>Keep any chat clean with our many automated filtering options and intelligent spam detection.</p>
+                    </div>
+                    <div class="card-graphic graphic-nodes mask-top">
+                        <!-- Node Tree -->
+                        <div class="node node-1">🔗 Links</div>
+                        <div class="node node-2">⚠️ Spoilers</div>
+                        <div class="node node-3">@ Mass Mentions</div>
+                        <div class="node node-4">✉️ Invites</div>
+                        <svg class="node-lines" viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">
+                            <path d="M 30 35 L 50 35 L 50 75" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>
+                            <path d="M 50 35 L 50 20 L 70 20" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>
+                            <path d="M 30 75 L 50 75" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>
+                            <path d="M 70 60 L 50 60 L 50 75" stroke="rgba(255,255,255,0.1)" fill="none" stroke-width="1" stroke-dasharray="2 2" vector-effect="non-scaling-stroke"/>
+                        </svg>
+                    </div>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-graphic graphic-logs mask-top">
+                        <div class="log-line ll-1"><div class="log-icon"></div><div class="log-text"></div></div>
+                        <div class="log-line ll-2"><div class="log-icon"></div><div class="log-text"></div></div>
+                        <div class="log-line ll-3"><div class="log-icon"></div><div class="log-text"></div></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Audit Logging</h3>
+                        <p>Track every deleted message, voice channel jump, and permission change in gorgeous, customizable logs.</p>
+                    </div>
+                </article>
+
+                <article class="card card-wide reveal">
+                    <div class="card-content">
+                        <h3>Leveling</h3>
+                        <p>XP, rank cards, server leaderboards &amp; automatic role rewards at milestones.</p>
+                    </div>
+                    <div class="card-graphic graphic-chart mask-top">
+                        <!-- Leveling Chart -->
+                        <div class="bar bar-1"></div>
+                        <div class="bar bar-2"></div>
+                        <div class="bar bar-3"></div>
+                        <div class="bar bar-4"></div>
+                        <div class="bar bar-5"></div>
+                        <div class="bar bar-6"></div>
+                        <div class="bar bar-7"></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="section showcase" id="showcase">
+        <div class="container showcase-grid">
+            <div class="showcase-copy reveal">
+                <span class="section-label">Audio Engine</span>
+                <h2 class="section-title">Studio quality,<br>zero lag.</h2>
+                <p class="section-sub">Experience flawless, high-fidelity music playback in your voice channels. With full support for Spotify, Apple Music, and custom playlists, Fade keeps the vibe alive 24/7.</p>
+                <ul class="check-list">
+                    <li>Lossless audio streaming</li>
+                    <li>Live synchronized lyrics</li>
+                    <li>24/7 uninterrupted playback</li>
+                    <li>Advanced queue management</li>
+                </ul>
+                <a href="commands.html" class="btn btn-ghost">View music commands</a>
+            </div>
+            <div class="showcase-panel music-panel reveal">
+                <div class="floating-alert alert-lyrics">🎵 Synced Lyrics</div>
+                <div class="floating-alert alert-queue">📋 14 Tracks in Queue</div>
+                <div class="music-art-container">
+                    <div class="music-art-glow"></div>
+                    <div class="music-art">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    </div>
+                </div>
+                <div class="music-info">
+                    <div class="music-title">STARBOY</div>
+                    <div class="music-artist">The Weeknd, Daft Punk</div>
+                </div>
+                <div class="music-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill">
+                            <div class="progress-knob"></div>
+                        </div>
+                    </div>
+                    <div class="progress-time"><span>1:24</span><span>3:50</span></div>
+                </div>
+                <div class="music-controls">
+                    <svg class="control-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"></polygon><line x1="5" y1="19" x2="5" y2="5"></line></svg>
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    </div>
+                    <svg class="control-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE 2: ECONOMY (Inverted Grid) -->
+    <section class="section showcase" style="border-top: none; padding-top: 0;">
+        <div class="container showcase-grid">
+            <div class="showcase-panel economy-panel reveal">
+                <div class="floating-alert alert-gold">💰 +500 Daily Claimed</div>
+                <div class="black-card">
+                    <div class="card-chip"></div>
+                    <div class="card-balance">$14,592.00</div>
+                    <div class="card-user">SNOW</div>
+                </div>
+                <div class="eco-stats">
+                    <div class="eco-stat"><span>Rank</span><b>#4 Global</b></div>
+                    <div class="eco-stat"><span>Inventory</span><b>12 Items</b></div>
+                </div>
+            </div>
+            <div class="showcase-copy reveal" style="padding-left: 40px;">
+                <span class="section-label">Global Economy</span>
+                <h2 class="section-title">Engage and<br>reward.</h2>
+                <p class="section-sub">Keep your community highly active with a rich, fully customizable global economy. Build shops, setup automated daily rewards, and let users climb the global leaderboards.</p>
+                <ul class="check-list">
+                    <li>Custom shops &amp; inventories</li>
+                    <li>Interactive gambling mini-games</li>
+                    <li>Global &amp; server-specific leaderboards</li>
+                    <li>Automated daily &amp; weekly rewards</li>
+                </ul>
+                <a href="commands.html" class="btn btn-ghost">View economy commands</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOWCASE 3: WELCOME AESTHETICS -->
+    <section class="section showcase" style="border-top: none; padding-top: 0;">
+        <div class="container showcase-grid">
+            <div class="showcase-copy reveal">
+                <span class="section-label">Aesthetics</span>
+                <h2 class="section-title">First impressions,<br>perfected.</h2>
+                <p class="section-sub">Greet new members with gorgeous, dynamically generated welcome cards. Fully customize backgrounds, fonts, and data overlays to match your server's exact aesthetic vibe.</p>
+                <ul class="check-list">
+                    <li>High-resolution generated images</li>
+                    <li>Custom fonts &amp; color gradients</li>
+                    <li>Dynamic user avatars &amp; join positions</li>
+                    <li>Automated role assignment</li>
+                </ul>
+                <a href="commands.html" class="btn btn-ghost">View welcome commands</a>
+            </div>
+            <div class="showcase-panel welcome-panel reveal">
+                <div class="floating-alert alert-purple">✨ Welcome Card Generated</div>
+                <div class="welcome-card-mock">
+                    <div class="mock-avatar"></div>
+                    <div class="mock-text">
+                        <div class="mock-welcome">Welcome to the server!</div>
+                        <div class="mock-name">SNOW</div>
+                        <div class="mock-member">Member #2,499</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-glow"></div>
+        <div class="container cta-inner">
+            <h2>Ready when you are.</h2>
+            <p>Add Fade in seconds. No card, no catch — just everything your server needs.</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn btn-primary btn-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.07.07 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.6 12.6 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.1 14.1 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                Add to Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <img src="logo.png" alt="Fade Logo" class="brand-logo" style="width: 30px; height: 30px; object-fit: contain; border-radius: 8px;" />
+                    <span class="brand-name">fade</span>
+                </a>
+                <p>The all-in-one Discord bot.</p>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <span>Product</span>
+                    <a href="commands.html">Commands</a>
+                    <a href="#features">Features</a>
+                    <a href="docs.html#antinuke">Security</a>
+                </div>
+                <div class="footer-col">
+                    <span>Community</span>
+                    <a href="https://discord.gg/kUTnKya2Cy" target="_blank">Discord</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">© 2026 Fade · Not affiliated with Discord Inc.</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

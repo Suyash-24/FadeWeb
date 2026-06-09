@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Fade</title>
+    <meta name="description" content="Privacy Policy for Fade Discord bot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .tos-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 180px 32px 80px;
+            position: relative;
+            z-index: 2;
+            color: var(--text-2);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .tos-container h1 {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -2px;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        .tos-container .last-updated {
+            font-size: 14px;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            display: block;
+        }
+        .tos-container h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .tos-container p {
+            margin-bottom: 20px;
+        }
+        .tos-container ul {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .tos-container ul li {
+            position: relative;
+            padding-left: 24px;
+        }
+        .tos-container ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 900;
+            font-size: 18px;
+        }
+        .tos-container a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .tos-container a:hover {
+            color: var(--accent-2);
+            text-decoration: underline;
+        }
+        .tos-container .tos-card {
+            background: linear-gradient(145deg, rgba(20,16,24,0.6) 0%, rgba(10,8,12,0.8) 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="bg-glow"></div>
+
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-pill">
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="Fade Logo" class="brand-logo" style="width: 30px; height: 30px; object-fit: contain; border-radius: 8px;" />
+                <span class="brand-name">fade</span>
+            </a>
+            <div class="nav-links">
+                <a href="commands.html">Commands</a>
+                <a href="faq.html">FAQ</a>
+                <a href="docs.html">Docs</a>
+            </div>
+            <a href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&permissions=8&integration_type=0&scope=bot" target="_blank" class="btn btn-primary nav-cta">Add to Discord</a>
+        </div>
+    </nav>
+
+    <div class="tos-container">
+        <h1>Privacy Policy</h1>
+        <span class="last-updated">Last Updated: June 9, 2026</span>
+
+        <div class="tos-card">
+            <h2>1. Information We Collect</h2>
+            <p>Fade is designed with privacy in mind. We only collect the minimum amount of data necessary to provide our moderation, leveling, and economy features. This data includes:</p>
+            <ul>
+                <li><strong>Server Configurations:</strong> Settings you configure through the dashboard or commands (e.g., prefix, automod limits, logging channels).</li>
+                <li><strong>Discord Identifiers:</strong> We store User IDs, Guild (Server) IDs, and Channel IDs strictly for database associations.</li>
+                <li><strong>Economy Data:</strong> User balances, inventories, and transaction histories tied to User IDs.</li>
+            </ul>
+
+            <h2>2. Message Content & Logs</h2>
+            <p>Fade <strong>does not</strong> permanently store the contents of your messages. Messages are only temporarily processed in memory to run AutoMod checks or execute commands. Once processed, the content is discarded.</p>
+            <p>If you enable logging features (e.g., deleted message logs), the bot will temporarily process the content to forward it to your designated log channel, but it is never written to our permanent databases.</p>
+
+            <h2>3. How We Use Your Data</h2>
+            <p>The data we collect is exclusively used to operate the bot and provide its features to your server. We do not use your data for advertising, and we will never sell, rent, or distribute your information to third parties.</p>
+
+            <h2>4. Data Retention and Deletion</h2>
+            <p>We retain your data only for as long as Fade is active in your server. If you kick the bot from your server, we periodically purge orphaned server configurations from our databases.</p>
+            <p>If you would like to request an immediate, complete deletion of all data associated with your server or your user account, you may request so by contacting us on our Support Server.</p>
+
+            <h2>5. Data Security</h2>
+            <p>We take security seriously. All data is stored in secure, encrypted databases, and access to the backend infrastructure is strictly limited to authorized developers. While we implement industry-standard security measures, no system is completely impenetrable, and we cannot guarantee absolute security.</p>
+
+            <h2>6. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or features. Any significant updates will be announced in our support channels. Continued use of Fade after changes are posted constitutes acceptance of the new policy.</p>
+
+            <h2>7. Contact Us</h2>
+            <p>If you have questions, concerns, or requests regarding your data and privacy, please reach out to our team in the <a href="https://discord.gg/kUTnKya2Cy" target="_blank">Support Server</a>.</p>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta" style="border-top: none; padding: 140px 20px; position: relative; overflow: visible;">
+        <div class="cta-glow" style="opacity: 0.8; transform: translate(-50%, -50%) scale(1.5);"></div>
+        <div class="cta-inner" style="text-align: center; position: relative; z-index: 2;">
+            <h2 style="font-size: 72px; font-weight: 900; margin-bottom: 0px; color: #fff; line-height: 1.1; letter-spacing: -1.5px;">Need help?</h2>
+            <h2 style="font-size: 72px; font-weight: 900; margin-bottom: 24px; background: linear-gradient(135deg, #e8919b, #c4505f); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; letter-spacing: -1.5px;">Join our support</h2>
+            <p style="color: var(--text-2); font-size: 18px; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">Have questions or need assistance? Our team is ready to help you out.</p>
+            <a href="https://discord.gg/kUTnKya2Cy" target="_blank" class="btn btn-ghost" style="padding: 16px 42px; border-radius: 14px; font-weight: 700; font-size: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">Join Support</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand" style="margin-bottom:12px">
+                        <img src="logo.png" alt="Fade Logo" class="brand-logo" style="width: 30px; height: 30px; object-fit: contain; border-radius: 8px;" />
+                        <span class="brand-name" style="color:var(--text)">fade</span>
+                    </a>
+                    <p>The ultimate multi-purpose Discord bot. Moderation, leveling, and a global economy.</p>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <span>Product</span>
+                        <a href="index.html#features">Features</a>
+                        <a href="commands.html">Commands</a>
+                    </div>
+                    <div class="footer-col">
+                        <span>Resources</span>
+                        <a href="docs.html">Documentation</a>
+                        <a href="https://discord.gg/kUTnKya2Cy" target="_blank">Support</a>
+                    </div>
+                    <div class="footer-col">
+                        <span>Legal</span>
+                        <a href="tos.html">Terms of Service</a>
+                        <a href="privacy.html" style="color: #fff;">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Fade. All rights reserved. Not affiliated with Discord.
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

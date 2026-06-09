@@ -1,0 +1,574 @@
+/* css/terminal.css — commands page redesign */
+
+/* ── Page layout ─────────────────────────────────────────────────────────── */
+.cmd-page {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 100px 32px 100px;
+    gap: 48px;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.cmd-sidebar {
+    position: sticky;
+    top: 90px;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-right: 8px; /* space for scrolling */
+}
+
+/* Hide scrollbar for sidebar but keep it scrollable */
+.cmd-sidebar::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.cmd-sidebar-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.3px;
+    margin-bottom: 14px;
+}
+
+.cmd-search-wrap {
+    margin-bottom: 16px;
+}
+
+.cmd-search-wrap input {
+    width: 100%;
+    background: rgba(20,16,24,0.6);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 13.5px;
+    font-family: inherit;
+    color: var(--text);
+    outline: none;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    transition: border-color .3s, box-shadow .3s;
+}
+.cmd-search-wrap input:focus { border-color: rgba(232,145,155,0.4); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 0 15px rgba(232,145,155,0.1); }
+.cmd-search-wrap input::placeholder { color: var(--text-3); }
+
+.cmd-nav { display: flex; flex-direction: column; gap: 2px; }
+
+.cmd-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-2);
+    cursor: pointer;
+    transition: background .18s, color .18s;
+    position: relative;
+}
+
+.cmd-nav-item .nav-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    transition: background .18s, border-color .18s;
+}
+
+.cmd-nav-item .nav-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: var(--text-3);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke .18s;
+}
+
+.cmd-nav-item .nav-label {
+    flex: 1;
+    font-size: 13px;
+}
+
+.cmd-nav-item .nav-count {
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 500;
+    min-width: 20px;
+    text-align: right;
+}
+
+.cmd-nav-item:hover {
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.02);
+}
+.cmd-nav-item:hover .nav-icon {
+    border-color: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+}
+.cmd-nav-item:hover .nav-icon svg {
+    stroke: #fff;
+}
+
+.cmd-nav-item.active {
+    background: linear-gradient(90deg, rgba(196,80,95,0.15), rgba(232,145,155,0.05));
+    color: #e8919b;
+    font-weight: 600;
+    border: 1px solid rgba(232,145,155,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2), inset 0 0 10px rgba(232,145,155,0.05);
+}
+.cmd-nav-item.active .nav-icon {
+    background: rgba(196,80,95,0.2);
+    border-color: rgba(232,145,155,0.4);
+    box-shadow: 0 0 15px rgba(232,145,155,0.2);
+}
+.cmd-nav-item.active .nav-icon svg {
+    stroke: #e8919b;
+}
+
+/* ── Main area ───────────────────────────────────────────────────────────── */
+.cmd-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.cmd-header h1 {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    background: linear-gradient(135deg, #fff, #e8919b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(232,145,155,0.2);
+}
+
+.cmd-count {
+    font-size: 13px;
+    color: var(--text-3);
+    font-weight: 500;
+}
+
+/* ── Grid ────────────────────────────────────────────────────────────────── */
+.cmd-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.cmd-section {
+    display: contents;
+}
+
+/* ── Command card ────────────────────────────────────────────────────────── */
+.cmd-card {
+    background: linear-gradient(145deg, rgba(20,16,24,0.6) 0%, rgba(10,8,12,0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 20px 24px;
+    transition: border-color .3s, transform .3s, box-shadow .3s;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(196,80,95,0.02);
+}
+.cmd-card:hover {
+    border-color: rgba(232,145,155,0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7), inset 0 0 40px rgba(196,80,95,0.06);
+}
+
+.cmd-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.cmd-card-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.2px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cmd-card-copy {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s, transform .2s;
+    flex-shrink: 0;
+    color: var(--text-3);
+}
+.cmd-card-copy:hover {
+    background: rgba(232,145,155,0.1);
+    border-color: rgba(232,145,155,0.3);
+    color: #e8919b;
+    transform: scale(1.05);
+}
+.cmd-card-copy svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cmd-card-desc {
+    font-size: 12.5px;
+    color: var(--text-2);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cmd-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.cmd-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 8px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+
+.cmd-tag.perm {
+    background: linear-gradient(90deg, rgba(94, 195, 205, 0.15), rgba(94, 195, 205, 0.05));
+    color: #5ec3cd;
+    border: 1px solid rgba(94, 195, 205, 0.3);
+    box-shadow: 0 0 10px rgba(94, 195, 205, 0.1);
+}
+
+.cmd-tag.args {
+    background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    color: var(--text-2);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ── Command detail modal ────────────────────────────────────────────────── */
+.cmd-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+.cmd-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cmd-modal {
+    width: 100%;
+    max-width: 520px;
+    background: linear-gradient(170deg, #161218 0%, #0d0a0f 100%);
+    border: 1px solid var(--border-hi);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 80px rgba(196,80,95,0.06);
+    transform: translateY(20px) scale(0.96);
+    transition: transform .3s cubic-bezier(.16,1,.3,1);
+    position: relative;
+}
+.cmd-modal-overlay.active .cmd-modal {
+    transform: translateY(0) scale(1);
+}
+
+.cmd-modal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+/* Modal header */
+.cmd-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 24px 16px;
+}
+
+.cmd-modal-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+.cmd-modal-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--text-2);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cmd-modal-title-group {
+    flex: 1;
+}
+
+.cmd-modal-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.3px;
+}
+
+.cmd-modal-category {
+    font-size: 12px;
+    color: var(--text-3);
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+.cmd-modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-3);
+    transition: background .15s, border-color .15s, color .15s;
+}
+.cmd-modal-close:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--border-hi);
+    color: var(--text);
+}
+.cmd-modal-close svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Modal body */
+.cmd-modal-body {
+    padding: 0 24px 24px;
+}
+
+.cmd-modal-desc {
+    font-size: 13.5px;
+    color: var(--text-2);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* Usage box */
+.cmd-modal-usage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 12px 16px;
+    margin-bottom: 22px;
+}
+
+.cmd-modal-usage code {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e8919b;
+    letter-spacing: -.2px;
+}
+
+.cmd-modal-usage-copy {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-3);
+    transition: background .15s, border-color .15s, color .15s;
+}
+.cmd-modal-usage-copy:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: var(--border-hi);
+    color: var(--text);
+}
+.cmd-modal-usage-copy svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Sections */
+.cmd-modal-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: var(--text-3);
+    margin-bottom: 10px;
+}
+
+/* Arguments list */
+.cmd-modal-args {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.cmd-modal-arg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 11px 14px;
+}
+
+.cmd-modal-arg-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cmd-modal-arg-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.cmd-modal-arg-type {
+    font-size: 11px;
+    color: var(--text-3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+}
+
+.cmd-modal-arg-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: .3px;
+}
+
+.cmd-modal-arg-badge.required {
+    background: rgba(196,80,95,0.12);
+    color: #e8919b;
+    border: 1px solid rgba(196,80,95,0.25);
+}
+
+.cmd-modal-arg-badge.optional {
+    background: rgba(80,196,120,0.1);
+    color: #6be89b;
+    border: 1px solid rgba(80,196,120,0.2);
+}
+
+/* Permissions */
+.cmd-modal-perms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.cmd-modal-perm {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    color: var(--text-2);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .cmd-page { grid-template-columns: 1fr; padding-top: 100px; }
+    .cmd-sidebar { position: static; }
+    .cmd-nav { flex-direction: row; flex-wrap: wrap; }
+    .cmd-search-wrap { width: 100%; }
+    .cmd-nav-item .nav-icon { display: none; }
+    .cmd-nav-item .nav-count { display: none; }
+}
+
+@media (max-width: 600px) {
+    .cmd-grid { grid-template-columns: 1fr; }
+    .cmd-page { padding-left: 20px; padding-right: 20px; gap: 32px; }
+    .cmd-modal { max-width: 100%; }
+}

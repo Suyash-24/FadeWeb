@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade — Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/docs.css">
+</head>
+<body class="docs-body">
+<div class="grain">
+                <a href="#detailed-usage" class="sidebar-link" data-section="detailed-usage">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0-5H20"></path></svg>
+                    Detailed Usage
+                </a>
+            
+                <a href="#detailed-usage" class="sidebar-link" data-section="detailed-usage">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0-5H20"></path></svg>
+                    Detailed Usage
+                </a>
+            </div>
+
+<!-- DOCS HEADER NAV -->
+<nav class="docs-header-nav" id="nav">
+    <div class="dhn-inner">
+        <div class="dhn-left">
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="Fade Logo" class="brand-logo" style="width: 30px; height: 30px; object-fit: contain; border-radius: 8px;" />
+                <span class="brand-name" style="color:#fff;">fade</span>
+            </a>
+        </div>
+        <div class="dhn-center">
+          <button class="dhn-search-bar" id="openSearchBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <span style="flex:1;text-align:left;color:var(--text-3);font-size:13px;font-family:inherit;">Search docs...</span>
+            <kbd>Ctrl K</kbd>
+        </button>
+        </div>
+        <div class="dhn-right">
+            <a href="index.html" class="dhn-link">Website</a>
+            <a href="https://discord.gg/kUTnKya2Cy" target="_blank" class="dhn-btn-support">Support &rsaquo;</a>
+            <button class="dhn-theme-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- DOCS LAYOUT -->
+<div class="docs-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <div class="sidebar-group">
+                <span class="sidebar-group-label">Overview</span>
+                <a href="#introduction" class="sidebar-link" data-section="introduction">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0-5H20"></path></svg>
+                    Introduction
+                </a>
+                <a href="#donator-perks" class="sidebar-link" data-section="donator-perks">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    Donator Perks
+                </a>
+                <a href="#customization" class="sidebar-link" data-section="customization">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 8-8 8-8-8 8-8z"></path><path d="M14 4l-4 4"></path><path d="M10 8l-4 4"></path></svg>
+                    Customization
+                </a>
+            </div>
+            
+            <div class="sidebar-group">
+                <span class="sidebar-group-label">Security Setup</span>
+                <a href="#antinuke" class="sidebar-link active" data-section="antinuke">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                    Antinuke
+                </a>
+                <a href="#antiraid" class="sidebar-link" data-section="antiraid">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                    Anti-Raid
+                </a>
+                <a href="#moderation" class="sidebar-link" data-section="moderation">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    Moderation
+                </a>
+                <a href="#fake-permissions" class="sidebar-link" data-section="fake-permissions">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    Fake Permissions
+                </a>
+            </div>
+
+            <div class="sidebar-group">
+                <span class="sidebar-group-label">Server Configuration</span>
+                <a href="#tickets" class="sidebar-link" data-section="tickets">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3c-1.1 0-2 .9-2 2s.9 2 2 2v3H4v-3c1.1 0 2-.9 2-2s-.9-2-2-2z"></path></svg>
+                    Tickets
+                    <svg class="sl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="#roles" class="sidebar-link" data-section="roles">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Roles
+                    <svg class="sl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="#messages" class="sidebar-link" data-section="messages">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    Messages
+                    <svg class="sl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="#starboard" class="sidebar-link" data-section="starboard">
+                    <svg class="sl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Starboard
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="docs-main" id="docsMain">
+
+
+        <!-- INTRODUCTION -->
+        <section class="docs-section" id="introduction">
+            <div class="docs-breadcrumb">Overview</div>
+            <h1 class="docs-title">Introduction</h1>
+            <p class="docs-lead">Fade is a free, all-in-one Discord bot built for moderation, security, and community engagement. No paywalls, no premium tiers — every feature is available to every server, forever.</p>
+
+            <p>Whether you're running a small friend group or a large public community, Fade gives you the tools to keep your server safe, active, and well-organized. From airtight antinuke protection to beautiful welcome cards and a full XP leveling system — it's all here, and it's all free.</p>
+
+            <div class="docs-callout callout-info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <div>Default prefix is <code>f!</code> — you can also use slash commands with <code>/</code>. Both work for every command.</div>
+            </div>
+
+            <h2>What Fade offers</h2>
+            <div class="docs-card-grid">
+                <div class="docs-feature-card">
+                    <span class="dfc-icon">🛡️</span>
+                    <div><strong>Security</strong><p>Antinuke, anti-raid, automod, and fake permissions to lock down your server against rogue admins and bot raids.</p></div>
+                </div>
+                <div class="docs-feature-card">
+                    <span class="dfc-icon">⚙️</span>
+                    <div><strong>Configuration</strong><p>Welcome cards, tickets, logging, reaction roles, starboard, and temporary voice channels.</p></div>
+                </div>
+                <div class="docs-feature-card">
+                    <span class="dfc-icon">📈</span>
+                    <div><strong>Engagement</strong><p>XP leveling with role rewards, giveaways, bump reminders, and live member counters.</p></div>
+                </div>
+                <div class="docs-feature-card">
+                    <span class="dfc-icon">🔧</span>
+                    <div><strong>Utility</strong><p>Auto responder, reaction triggers, snipe, and quality-of-life tools for everyday server management.</p></div>
+                </div>
+            </div>
+
+            <h2>How to use this documentation</h2>
+            <p>Use the sidebar on the left to navigate between modules. Each page explains what the feature does, why you'd want it, and every command with its syntax. If you're new, start with <strong>Getting Started</strong> to get Fade set up correctly before configuring individual modules.</p>
+
+            <div class="docs-nav-footer">
+                <span></span>
+                <a href="#getting-started" class="docs-nav-btn" onclick="navigate('getting-started')">Getting Started →</a>
+            </div>
+        </section>
+
+        <!-- GETTING STARTED -->
+        <section class="docs-section hidden" id="getting-started">
+            <div class="docs-breadcrumb">Overview</div>
+            <h1 class="docs-title">Getting Started</h1>
+            <p class="docs-lead">Get Fade fully set up in your server in a few minutes. Follow these steps in order to avoid permission issues.</p>
+
+            <h2>1. Invite Fade</h2>
+            <p>Click <strong>Add to Discord</strong> at the top of this page and authorize Fade. When prompted for permissions, grant <strong>Administrator</strong> — this is required for antinuke, moderation, and role management to work correctly. If you prefer not to grant Administrator, you'll need to manually assign every individual permission Fade needs.</p>
+
+            <h2>2. Position Fade's role correctly</h2>
+            <p>This is the most common cause of issues. Go to <strong>Server Settings → Roles</strong> and drag Fade's role to the <strong>very top</strong> of the list, above every other role. Discord only allows a bot to manage roles that are below its own role in the hierarchy. If Fade's role is too low, commands like <code>/mute</code>, <code>/ban</code>, and role assignment will silently fail.</p>
+
+            <div class="docs-callout callout-warn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div>Fade cannot moderate users whose highest role is above Fade's role. This is a Discord limitation, not a bug.</div>
+            </div>
+
+            <h2>3. Configure the modules you need</h2>
+            <p>Every module in Fade is independent — you only set up what you want. Use the sidebar to navigate to any feature. A good starting order for most servers:</p>
+            <ol class="docs-ol">
+                <li><strong>Antinuke</strong> — protect against rogue admins first</li>
+                <li><strong>Moderation</strong> — set up your mod workflow</li>
+                <li><strong>Logging</strong> — so you have a record of everything</li>
+                <li><strong>Welcome</strong> — greet new members</li>
+                <li>Everything else at your own pace</li>
+            </ol>
+
+            <h2>Prefix</h2>
+            <p>The default prefix is <code>f!</code>. Every command also works as a slash command with <code>/</code>. You can use either interchangeably.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>f!help</code><span>Browse all commands via prefix</span></div>
+                <div class="cmd-row"><code>/help</code><span>Browse all commands via slash command</span></div>
+                <div class="cmd-row"><code>/help command:&lt;name&gt;</code><span>Get detailed info on a specific command</span></div>
+            </div>
+
+            <div class="docs-callout callout-tip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div>If you run into any issues not covered in these docs, join the support server linked in the nav.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#introduction" class="docs-nav-btn" onclick="navigate('introduction')">← Introduction</a>
+                <a href="#donator-perks" class="docs-nav-btn" onclick="navigate('donator-perks')">Donator Perks →</a>
+            </div>
+        </section>
+
+        <!-- DONATOR PERKS -->
+        <section class="docs-section hidden" id="donator-perks">
+            <div class="docs-breadcrumb">Overview</div>
+            <h1 class="docs-title">Donator Perks</h1>
+            <p class="docs-lead">Everything in Fade is 100% free, forever. However, supporting the bot unlocks a few cosmetic perks to show our appreciation.</p>
+
+            <h2>Is Fade really free?</h2>
+            <p>Yes! All core features—including Moderation, AutoMod, Logging, and the Economy system—are completely free for every server. We do not paywall essential functionality.</p>
+
+            <h2>What do donators get?</h2>
+            <p>If you choose to support Fade's development, you get access to a premium tier for communities that want ultra-customizable aesthetics (like fully custom welcome cards) and higher rate limits. You also get a special donator badge on your profile.</p>
+
+            <div class="docs-nav-footer">
+                <a href="#getting-started" class="docs-nav-btn" onclick="navigate('getting-started')">← Getting Started</a>
+                <a href="#customization" class="docs-nav-btn" onclick="navigate('customization')">Customization →</a>
+            </div>
+        </section>
+
+        <!-- CUSTOMIZATION -->
+        <section class="docs-section hidden" id="customization">
+            <div class="docs-breadcrumb">Overview</div>
+            <h1 class="docs-title">Customization</h1>
+            <p class="docs-lead">Make Fade feel like it was built specifically for your server with custom embeds, webhooks, and flexible message variables.</p>
+
+            <h2>Custom Embeds</h2>
+            <p>You can create fully customized embeds using our powerful script syntax. Use the <code>f!ce</code> command to post beautiful embeds or Components v2 cards directly to any channel.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>f!ce [#channel] &lt;embed script&gt;</code><span>Post an embed to the channel</span></div>
+                <div class="cmd-row"><code>f!ce [#channel] {card}$v...</code><span>Post a rich Components v2 card</span></div>
+                <div class="cmd-row"><code>f!ce edit &lt;message_url&gt; &lt;script&gt;</code><span>Edit an existing bot message</span></div>
+            </div>
+
+            <h2>Webhooks</h2>
+            <p>For an even more professional look, use webhooks to send messages with custom names and avatars.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>f!webhook create &lt;name&gt; [#channel] [username] [avatar_url]</code><span>Create a new webhook</span></div>
+                <div class="cmd-row"><code>f!webhook send &lt;name&gt; &lt;message&gt;</code><span>Send a message through the webhook</span></div>
+                <div class="cmd-row"><code>f!webhook list</code><span>View all your custom webhooks</span></div>
+            </div>
+
+            <h2>Variables</h2>
+            <p>When writing custom embeds, welcome messages, or auto-responders, you can use these variables to dynamically insert information:</p>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Variable</th><th>Replaced with</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>{user}</code></td><td>Mentions the member (e.g. @Snow)</td></tr>
+                        <tr><td><code>{username}</code></td><td>The member's username</td></tr>
+                        <tr><td><code>{server}</code></td><td>Your server's name</td></tr>
+                        <tr><td><code>{channel}</code></td><td>Mentions the current channel</td></tr>
+                        <tr><td><code>{count}</code></td><td>Current total member count</td></tr>
+                        <tr><td><code>{id}</code></td><td>The user's ID</td></tr>
+                        <tr><td><code>{avatar}</code></td><td>The user's avatar URL</td></tr>
+                        <tr><td><code>{servericon}</code></td><td>The server's icon URL</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#donator-perks" class="docs-nav-btn" onclick="navigate('donator-perks')">← Donator Perks</a>
+                <a href="#antinuke" class="docs-nav-btn" onclick="navigate('antinuke')">Antinuke →</a>
+            </div>
+        </section>
+
+        <!-- ANTINUKE -->
+        <section class="docs-section hidden" id="antinuke">
+            <div class="docs-breadcrumb">Security</div>
+            <h1 class="docs-title">Antinuke</h1>
+            <p class="docs-lead">Impose limits on moderators to prevent destructive behavior from rogue admins or compromised accounts.</p>
+
+            <h2>Why use antinuke?</h2>
+            <p>Even trusted admins can have their accounts compromised. Without antinuke, a single bad actor with admin permissions can delete every channel, ban every member, and destroy your server in seconds. Antinuke watches for these mass actions and automatically strips permissions and reverses damage before it spreads.</p>
+
+            <div class="docs-callout callout-warn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div>Only the <strong>server owner</strong> and designated antinuke admins can configure this module. This is intentional — giving anyone else access defeats the purpose.</div>
+            </div>
+
+            <h2>How it works</h2>
+            <p>Each module tracks a specific action (bans, kicks, channel deletes, etc.). When a user exceeds the configured threshold within a short time window, Fade immediately strips their dangerous permissions and notifies the server owner. The server owner is always exempt from antinuke.</p>
+
+            <h2>Enabling & disabling</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/antinuke enable</code><span>Enable antinuke protection for your server</span></div>
+                <div class="cmd-row"><code>/antinuke disable</code><span>Disable antinuke entirely</span></div>
+                <div class="cmd-row"><code>/antinuke settings</code><span>View the current configuration and all module states</span></div>
+            </div>
+
+            <h2>Configuring modules</h2>
+            <p>Each module can be toggled independently with a custom threshold. The threshold is how many actions a user can perform before being punished. Keep it between <code>1</code> and <code>5</code> for best protection.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/antinuke module &lt;module&gt; &lt;threshold&gt;</code><span>Enable a module and set its action threshold</span></div>
+            </div>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Module</th><th>What it watches</th><th>Recommended threshold</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ban</code></td><td>Mass member bans</td><td>3</td></tr>
+                        <tr><td><code>kick</code></td><td>Mass member kicks</td><td>3</td></tr>
+                        <tr><td><code>channel</code></td><td>Channel deletions/creations</td><td>2</td></tr>
+                        <tr><td><code>role</code></td><td>Role deletions</td><td>2</td></tr>
+                        <tr><td><code>webhook</code></td><td>Webhook creation (common in raids)</td><td>2</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Whitelisting trusted users</h2>
+            <p>Whitelisted users are completely exempt from antinuke checks. Only whitelist users you fully trust — a whitelisted user can perform mass actions without being stopped.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/antinuke whitelist add &lt;user&gt;</code><span>Exempt a user from all antinuke checks</span></div>
+                <div class="cmd-row"><code>/antinuke whitelist remove &lt;user&gt;</code><span>Remove a user from the whitelist</span></div>
+            </div>
+
+            <h2>Antinuke admins</h2>
+            <p>By default only the server owner can change antinuke settings. You can grant other users the ability to configure antinuke without giving them server ownership.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/antinuke admin add &lt;user&gt;</code><span>Allow a user to configure antinuke</span></div>
+                <div class="cmd-row"><code>/antinuke admin remove &lt;user&gt;</code><span>Revoke antinuke admin access</span></div>
+            </div>
+            <div class="docs-callout callout-warn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div>Antinuke admins can whitelist users and disable modules. Only grant this to people you trust as much as yourself.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#customization" class="docs-nav-btn" onclick="navigate('customization')">← Customization</a>
+                <a href="#antiraid" class="docs-nav-btn" onclick="navigate('antiraid')">Anti-Raid →</a>
+            </div>
+        </section>
+
+        <!-- ANTIRAID -->
+        <section class="docs-section hidden" id="antiraid">
+            <div class="docs-breadcrumb">Security</div>
+            <h1 class="docs-title">Anti-Raid</h1>
+            <p class="docs-lead">Automatically detect and neutralize bot raids using join rate monitoring, account age filters, and avatar detection.</p>
+
+            <h2>Why use anti-raid?</h2>
+            <p>Bot raids involve dozens or hundreds of fake accounts joining your server simultaneously to spam, ping members, or post harmful content. Anti-raid detects the abnormal join rate and takes action automatically — before you even notice the attack.</p>
+
+            <h2>How it works</h2>
+            <p>Fade monitors how many accounts join within a short time window. When the threshold is exceeded, it triggers the configured action (kick, ban, or lockdown) against the joining accounts. You can also set a minimum account age so newly created throwaway accounts are blocked at the door.</p>
+
+            <h2>Setup</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/antiraid enable</code><span>Enable anti-raid protection</span></div>
+                <div class="cmd-row"><code>/antiraid disable</code><span>Disable anti-raid</span></div>
+                <div class="cmd-row"><code>/antiraid threshold &lt;joins&gt; &lt;seconds&gt;</code><span>Set how many joins in how many seconds triggers a raid alert</span></div>
+                <div class="cmd-row"><code>/antiraid action &lt;kick|ban|lockdown&gt;</code><span>What happens to accounts caught in a raid</span></div>
+                <div class="cmd-row"><code>/antiraid minage &lt;days&gt;</code><span>Block accounts younger than this many days from joining</span></div>
+                <div class="cmd-row"><code>/antiraid settings</code><span>View the current anti-raid configuration</span></div>
+            </div>
+
+            <h2>Actions explained</h2>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Action</th><th>What it does</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>kick</code></td><td>Kicks raid accounts. They can rejoin if the server is public.</td></tr>
+                        <tr><td><code>ban</code></td><td>Permanently bans raid accounts. Recommended for serious raids.</td></tr>
+                        <tr><td><code>lockdown</code></td><td>Prevents anyone new from joining until you manually lift it.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="docs-callout callout-tip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div>Setting <code>minage</code> to <code>7</code> days blocks the vast majority of throwaway raid accounts, which are almost always brand new.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#antinuke" class="docs-nav-btn" onclick="navigate('antinuke')">← Antinuke</a>
+                <a href="#moderation" class="docs-nav-btn" onclick="navigate('moderation')">Moderation →</a>
+            </div>
+        </section>
+
+        <!-- MODERATION -->
+        <section class="docs-section hidden" id="moderation">
+            <div class="docs-breadcrumb">Security</div>
+            <h1 class="docs-title">Moderation</h1>
+            <p class="docs-lead">A complete moderation suite with case tracking, mod history, DM notifications, and temporary punishments.</p>
+
+            <h2>Case system</h2>
+            <p>Every moderation action (ban, kick, mute, warn) automatically creates a numbered case. Cases are stored permanently and can be reviewed, updated, or referenced at any time. This gives you a full audit trail of every action taken in your server.</p>
+
+            <h2>Banning members</h2>
+            <p>The <code>/ban</code> command supports both permanent and temporary bans. For temp bans, provide a duration like <code>7d</code>, <code>24h</code>, or <code>30m</code> — Fade will automatically unban the user when the time expires.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/ban &lt;user&gt; [reason] [duration] [delete_messages]</code><span>Ban a user. Leave duration empty for permanent.</span></div>
+                <div class="cmd-row"><code>/unban &lt;user&gt; [reason]</code><span>Unban a user by ID or username</span></div>
+            </div>
+
+            <h2>Kicking & muting</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/kick &lt;user&gt; [reason]</code><span>Kick a member from the server</span></div>
+                <div class="cmd-row"><code>/mute &lt;user&gt; &lt;duration&gt; [reason]</code><span>Timeout a member (e.g. 1h, 30m, 7d)</span></div>
+                <div class="cmd-row"><code>/unmute &lt;user&gt; [reason]</code><span>Remove a timeout early</span></div>
+            </div>
+
+            <h2>Warnings</h2>
+            <p>Warnings are logged to the case system and visible in a user's mod history. Use them to document minor infractions before escalating to mutes or bans.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/warn &lt;user&gt; &lt;reason&gt;</code><span>Issue a warning to a user</span></div>
+                <div class="cmd-row"><code>/warnings &lt;user&gt;</code><span>View all warnings for a user</span></div>
+            </div>
+
+            <h2>Case management</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/case &lt;id&gt;</code><span>View a specific case by its number</span></div>
+                <div class="cmd-row"><code>/modhistory &lt;user&gt;</code><span>View the full moderation history for a user</span></div>
+                <div class="cmd-row"><code>/reason &lt;case_id&gt; &lt;reason&gt;</code><span>Update the reason on an existing case</span></div>
+            </div>
+
+            <div class="docs-callout callout-info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <div>Fade automatically DMs the target user with the reason when a moderation action is taken, so they know why they were punished.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#antiraid" class="docs-nav-btn" onclick="navigate('antiraid')">← Anti-Raid</a>
+                <a href="#fake-permissions" class="docs-nav-btn" onclick="navigate('fake-permissions')">Fake Permissions →</a>
+            </div>
+        </section>
+
+        <!-- FAKE PERMISSIONS -->
+        <section class="docs-section hidden" id="fake-permissions">
+            <div class="docs-breadcrumb">Security</div>
+            <h1 class="docs-title">Fake Permissions</h1>
+            <p class="docs-lead">Let users run moderation commands without giving them real Discord permissions — keeping your role hierarchy clean and secure.</p>
+
+            <h2>Why use fake permissions?</h2>
+            <p>Discord's native permissions are all-or-nothing. If you give someone <strong>Ban Members</strong>, they can ban anyone below them — including using Discord's built-in mass ban feature which can ban 100+ members instantly. Fake permissions let you grant the ability to use Fade's <code>/ban</code> command without touching Discord's actual permission system at all.</p>
+            <p>This is especially important when combined with antinuke — a user with fake ban permission can only ban through Fade (which is rate-limited and logged), not through Discord directly.</p>
+
+            <div class="docs-callout callout-tip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div>It's highly recommended to use fake permissions alongside antinuke. Remove real Discord mod permissions from staff roles and replace them with fake permissions instead.</div>
+            </div>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/fakeperms grant &lt;role&gt; &lt;permission&gt;</code><span>Grant a fake permission to a role</span></div>
+                <div class="cmd-row"><code>/fakeperms revoke &lt;role&gt; &lt;permission&gt;</code><span>Remove a fake permission from a role</span></div>
+                <div class="cmd-row"><code>/fakeperms list [role]</code><span>View all fake permissions, optionally filtered by role</span></div>
+            </div>
+
+            <h2>Available permissions</h2>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Permission</th><th>Unlocks</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ban_members</code></td><td>/ban, /unban</td></tr>
+                        <tr><td><code>kick_members</code></td><td>/kick</td></tr>
+                        <tr><td><code>moderate_members</code></td><td>/mute, /unmute</td></tr>
+                        <tr><td><code>manage_messages</code></td><td>/warn, /warnings</td></tr>
+                        <tr><td><code>view_audit_log</code></td><td>/case, /modhistory</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#automod" class="docs-nav-btn" onclick="navigate('automod')">← AutoMod</a>
+                <a href="#welcome" class="docs-nav-btn" onclick="navigate('welcome')">Welcome & Goodbye →</a>
+            </div>
+        </section>
+
+        <!-- WELCOME -->
+        <section class="docs-section hidden" id="welcome">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Welcome & Goodbye</h1>
+            <p class="docs-lead">Greet new members and farewell departing ones with fully customizable messages — choose between a classic embed or a rich card layout.</p>
+
+            <h2>Styles</h2>
+            <p>Fade supports two message styles. <strong>Embed</strong> is the classic Discord embed format. <strong>Card</strong> uses Discord's Components v2 to render a visually rich card with the user's avatar, join position, and custom text. You can preview either style before going live.</p>
+
+            <h2>Setting up welcome messages</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/welcome channel &lt;channel&gt;</code><span>Set which channel welcome messages are sent to</span></div>
+                <div class="cmd-row"><code>/welcome style &lt;embed|card&gt;</code><span>Choose the message style</span></div>
+                <div class="cmd-row"><code>/welcome message</code><span>Open the interactive message builder to customize the content</span></div>
+                <div class="cmd-row"><code>/welcome autorole &lt;role&gt;</code><span>Automatically assign a role when a member joins</span></div>
+                <div class="cmd-row"><code>/welcome test</code><span>Send a preview of the welcome message to the channel</span></div>
+                <div class="cmd-row"><code>/welcome disable</code><span>Turn off welcome messages</span></div>
+            </div>
+
+            <h2>Setting up goodbye messages</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/goodbye channel &lt;channel&gt;</code><span>Set which channel goodbye messages are sent to</span></div>
+                <div class="cmd-row"><code>/goodbye message</code><span>Open the message builder</span></div>
+                <div class="cmd-row"><code>/goodbye test</code><span>Preview the goodbye message</span></div>
+                <div class="cmd-row"><code>/goodbye disable</code><span>Turn off goodbye messages</span></div>
+            </div>
+
+            <h2>Variables</h2>
+            <p>Use these placeholders in your message content — Fade replaces them with real values when the message is sent.</p>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Variable</th><th>Replaced with</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>{user}</code></td><td>Mentions the member (e.g. @Snow)</td></tr>
+                        <tr><td><code>{username}</code></td><td>The member's username without mention</td></tr>
+                        <tr><td><code>{server}</code></td><td>Your server's name</td></tr>
+                        <tr><td><code>{membercount}</code></td><td>Current total member count</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#fake-permissions" class="docs-nav-btn" onclick="navigate('fake-permissions')">← Fake Permissions</a>
+                <a href="#logging" class="docs-nav-btn" onclick="navigate('logging')">Logging →</a>
+            </div>
+        </section>
+
+        <!-- LOGGING -->
+        <section class="docs-section hidden" id="logging">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Logging</h1>
+            <p class="docs-lead">Keep a detailed record of everything that happens in your server — deleted messages, voice moves, role changes, bans, and more.</p>
+
+            <h2>Why set up logging?</h2>
+            <p>Logs give you visibility into what's happening in your server even when you're offline. They're essential for investigating incidents, tracking mod actions, and catching rule-breakers who delete their messages. Each event type can be sent to a different channel so your logs stay organized.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/log channel &lt;event&gt; &lt;channel&gt;</code><span>Route a specific event type to a channel</span></div>
+                <div class="cmd-row"><code>/log disable &lt;event&gt;</code><span>Stop logging a specific event type</span></div>
+                <div class="cmd-row"><code>/log settings</code><span>View all configured log channels at a glance</span></div>
+            </div>
+
+            <h2>Event types</h2>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Event</th><th>What gets logged</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>messages</code></td><td>Deleted messages (with content) and edited messages (before/after)</td></tr>
+                        <tr><td><code>members</code></td><td>Joins, leaves, username changes, nickname changes, avatar changes</td></tr>
+                        <tr><td><code>voice</code></td><td>Voice channel joins, leaves, moves, mutes, and deafens</td></tr>
+                        <tr><td><code>roles</code></td><td>Role created, deleted, renamed, and role assigned/removed from members</td></tr>
+                        <tr><td><code>channels</code></td><td>Channel created, deleted, renamed, and permission overwrites changed</td></tr>
+                        <tr><td><code>moderation</code></td><td>All Fade mod actions — bans, kicks, mutes, warns with case numbers</td></tr>
+                        <tr><td><code>server</code></td><td>Server name, icon, verification level, and setting changes</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#welcome" class="docs-nav-btn" onclick="navigate('welcome')">← Welcome</a>
+                <a href="#tickets" class="docs-nav-btn" onclick="navigate('tickets')">Tickets →</a>
+            </div>
+        </section>
+
+        <!-- TICKETS -->
+        <section class="docs-section hidden" id="tickets">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Tickets</h1>
+            <p class="docs-lead">Create support ticket panels with multiple categories, each opening a private channel for the user and your staff team.</p>
+
+            <h2>How it works</h2>
+            <p>You create a panel and post it in a channel. Members click a button or select from a dropdown to open a ticket. Each ticket creates a private channel visible only to the member and your staff. When resolved, the ticket can be closed and the channel is deleted.</p>
+
+            <h2>Creating a panel</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/ticket create &lt;name&gt; &lt;channel&gt;</code><span>Create a new ticket panel and assign it to a channel</span></div>
+                <div class="cmd-row"><code>/ticket option add &lt;panel&gt; &lt;label&gt; &lt;category&gt;</code><span>Add a ticket type (e.g. "Support", "Report", "Appeal") to a panel</span></div>
+                <div class="cmd-row"><code>/ticket send &lt;panel&gt;</code><span>Post the panel message in its channel so members can use it</span></div>
+            </div>
+
+            <h2>Managing panels</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/ticket list</code><span>View all ticket panels in your server</span></div>
+                <div class="cmd-row"><code>/ticket delete &lt;panel&gt;</code><span>Delete a panel and remove its message</span></div>
+            </div>
+
+            <div class="docs-callout callout-tip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div>Add multiple options to one panel to handle different request types (e.g. General Support, Bug Report, Ban Appeal) all from a single message.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#fake-permissions" class="docs-nav-btn" onclick="navigate('fake-permissions')">← Fake Permissions</a>
+                <a href="#roles" class="docs-nav-btn" onclick="navigate('roles')">Roles →</a>
+            </div>
+        </section>
+
+        <!-- ROLES -->
+        <section class="docs-section hidden" id="roles">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Roles</h1>
+            <p class="docs-lead">Manage your server's roles including reaction roles, booster rewards, and vanity URL rewards.</p>
+
+            <h2>Reaction Roles</h2>
+            <p>Let members self-assign roles by clicking buttons or selecting from a dropdown — no moderator needed.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/reactionrole create &lt;channel&gt; &lt;title&gt;</code><span>Create a new panel in the specified channel</span></div>
+                <div class="cmd-row"><code>/reactionrole add &lt;panel&gt; &lt;role&gt; &lt;label&gt; [emoji]</code><span>Add a role button to the panel</span></div>
+                <div class="cmd-row"><code>/reactionrole remove &lt;panel&gt; &lt;role&gt;</code><span>Remove a role from the panel</span></div>
+                <div class="cmd-row"><code>/reactionrole style &lt;panel&gt; &lt;button|dropdown&gt;</code><span>Switch between button and dropdown layout</span></div>
+                <div class="cmd-row"><code>/reactionrole delete &lt;panel&gt;</code><span>Delete the panel and its message</span></div>
+            </div>
+
+            <h2>Booster Roles</h2>
+            <p>Reward your Server Boosters by letting them create and manage their own custom roles.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/boosterrole create &lt;name&gt; &lt;color&gt;</code><span>Create your custom booster role (Boosters only)</span></div>
+                <div class="cmd-row"><code>/boosterrole edit [name] [color]</code><span>Edit your existing booster role</span></div>
+                <div class="cmd-row"><code>/boosterrole delete</code><span>Delete your booster role</span></div>
+                <div class="cmd-row"><code>/boosterrole setup &lt;role&gt; &lt;position_role&gt;</code><span>Configure which role is required to make custom roles (Admin only)</span></div>
+            </div>
+
+            <h2>Vanity Roles</h2>
+            <p>Reward members who advertise your server's vanity URL or a specific keyword in their Discord status.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/vanity set &lt;keyword&gt;</code><span>Set the vanity keyword to monitor in member statuses</span></div>
+                <div class="cmd-row"><code>/vanity role add &lt;role&gt;</code><span>Add a role to be given when a user has the vanity in their status</span></div>
+                <div class="cmd-row"><code>/vanity role remove &lt;role&gt;</code><span>Remove a role from the vanity rewards</span></div>
+                <div class="cmd-row"><code>/vanity settings</code><span>View current vanity configuration</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#tickets" class="docs-nav-btn" onclick="navigate('tickets')">← Tickets</a>
+                <a href="#messages" class="docs-nav-btn" onclick="navigate('messages')">Messages →</a>
+            </div>
+        </section>
+
+        <!-- MESSAGES -->
+        <section class="docs-section hidden" id="messages">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Messages</h1>
+            <p class="docs-lead">Configure Sticky Messages to keep important information visible at the bottom of a channel.</p>
+
+            <h2>Sticky Messages</h2>
+            <p>A sticky message is a message that constantly stays at the bottom of a channel. Every time someone sends a new message, Fade will delete the old sticky message and send a new one so it's always visible.</p>
+
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/sticky set &lt;channel&gt; &lt;message&gt;</code><span>Create a sticky message in the specified channel</span></div>
+                <div class="cmd-row"><code>/sticky remove &lt;channel&gt;</code><span>Remove the sticky message from a channel</span></div>
+                <div class="cmd-row"><code>/sticky list</code><span>View all sticky messages in your server</span></div>
+                <div class="cmd-row"><code>/sticky toggle &lt;channel&gt;</code><span>Temporarily pause or unpause a sticky message</span></div>
+            </div>
+
+            <div class="docs-callout callout-info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <div>Sticky messages have a built-in cooldown to prevent API spam if your chat is very active. The sticky message will only jump to the bottom every 5 seconds.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#roles" class="docs-nav-btn" onclick="navigate('roles')">← Roles</a>
+                <a href="#starboard" class="docs-nav-btn" onclick="navigate('starboard')">Starboard →</a>
+            </div>
+        </section>
+
+        <!-- STARBOARD -->
+        <section class="docs-section hidden" id="starboard">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Starboard</h1>
+            <p class="docs-lead">Highlight the best messages in your server by letting members star them — like a community hall of fame.</p>
+
+            <h2>How it works</h2>
+            <p>When a message receives enough star reactions (⭐ by default), Fade reposts it in your designated starboard channel with a link back to the original. The more stars a message gets, the more prominent it becomes. It's a great way to surface funny, insightful, or memorable moments.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/starboard channel &lt;channel&gt;</code><span>Set the channel where starred messages are posted</span></div>
+                <div class="cmd-row"><code>/starboard threshold &lt;count&gt;</code><span>How many stars a message needs before it's posted</span></div>
+                <div class="cmd-row"><code>/starboard emoji &lt;emoji&gt;</code><span>Change the reaction emoji (default: ⭐)</span></div>
+                <div class="cmd-row"><code>/starboard disable</code><span>Turn off the starboard</span></div>
+                <div class="cmd-row"><code>/starboard settings</code><span>View the current starboard configuration</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#messages" class="docs-nav-btn" onclick="navigate('messages')">← Messages</a>
+                <a href="#tempvoice" class="docs-nav-btn" onclick="navigate('tempvoice')">Temp Voice →</a>
+            </div>
+        </section>
+
+        <!-- TEMPVOICE -->
+        <section class="docs-section hidden" id="tempvoice">
+            <div class="docs-breadcrumb">Configuration</div>
+            <h1 class="docs-title">Temp Voice</h1>
+            <p class="docs-lead">Let members create their own private voice channels that automatically delete when everyone leaves.</p>
+
+            <h2>How it works</h2>
+            <p>You designate a "Join to Create" voice channel. When a member joins it, Fade instantly creates a new voice channel for them in the configured category and moves them into it. They become the owner and can customize it. When the last person leaves, the channel is automatically deleted — keeping your channel list clean.</p>
+
+            <h2>Server setup</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/tempvoice setup &lt;category&gt;</code><span>Enable temp voice and set the category where channels are created</span></div>
+                <div class="cmd-row"><code>/tempvoice disable</code><span>Disable temp voice and remove the join-to-create channel</span></div>
+            </div>
+
+            <h2>Member controls</h2>
+            <p>Once a member has their own temp channel, they can manage it with these commands:</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/vc name &lt;name&gt;</code><span>Rename the channel</span></div>
+                <div class="cmd-row"><code>/vc limit &lt;number&gt;</code><span>Set a user limit (0 = unlimited)</span></div>
+                <div class="cmd-row"><code>/vc lock</code><span>Lock the channel so no one new can join</span></div>
+                <div class="cmd-row"><code>/vc unlock</code><span>Unlock the channel</span></div>
+                <div class="cmd-row"><code>/vc permit &lt;user&gt;</code><span>Allow a specific user to join even when locked</span></div>
+                <div class="cmd-row"><code>/vc reject &lt;user&gt;</code><span>Block a specific user from joining</span></div>
+                <div class="cmd-row"><code>/vc transfer &lt;user&gt;</code><span>Hand ownership of the channel to another member</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#starboard" class="docs-nav-btn" onclick="navigate('starboard')">← Starboard</a>
+                <a href="#leveling" class="docs-nav-btn" onclick="navigate('leveling')">Leveling →</a>
+            </div>
+        </section>
+
+        <!-- LEVELING -->
+        <section class="docs-section hidden" id="leveling">
+            <div class="docs-breadcrumb">Engagement</div>
+            <h1 class="docs-title">Leveling</h1>
+            <p class="docs-lead">Reward active members with XP for chatting, rank cards, a server leaderboard, and automatic role rewards at milestones.</p>
+
+            <h2>How XP works</h2>
+            <p>Members earn XP by sending messages. There's a cooldown between XP gains to prevent spam farming. As they accumulate XP they level up, and you can configure roles to be automatically assigned at specific levels — great for unlocking channels or recognizing loyal members.</p>
+
+            <h2>Member commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/rank [user]</code><span>View your rank card, or another member's. Shows level, XP, and server rank.</span></div>
+                <div class="cmd-row"><code>/leaderboard</code><span>View the top members by XP in your server</span></div>
+            </div>
+
+            <h2>Server configuration</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/levelconfig channel &lt;channel&gt;</code><span>Set where level-up announcements are posted</span></div>
+                <div class="cmd-row"><code>/levelconfig multiplier &lt;value&gt;</code><span>Multiply XP gain (e.g. 2 = double XP for everyone)</span></div>
+            </div>
+
+            <h2>Level rewards</h2>
+            <p>Assign a role to be automatically given when a member reaches a specific level. Roles stack by default — members keep all previous reward roles as they level up.</p>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/levelrewards add &lt;level&gt; &lt;role&gt;</code><span>Give a role when a member reaches this level</span></div>
+                <div class="cmd-row"><code>/levelrewards remove &lt;level&gt;</code><span>Remove the reward for a level</span></div>
+                <div class="cmd-row"><code>/levelrewards list</code><span>View all configured level rewards</span></div>
+            </div>
+
+            <h2>Admin XP management</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/addxp &lt;user&gt; &lt;amount&gt;</code><span>Add XP to a specific user</span></div>
+                <div class="cmd-row"><code>/removexp &lt;user&gt; &lt;amount&gt;</code><span>Remove XP from a user</span></div>
+                <div class="cmd-row"><code>/setxp &lt;user&gt; &lt;amount&gt;</code><span>Set a user's XP to an exact value</span></div>
+                <div class="cmd-row"><code>/setlevel &lt;user&gt; &lt;level&gt;</code><span>Set a user's level directly</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#tempvoice" class="docs-nav-btn" onclick="navigate('tempvoice')">← Temp Voice</a>
+                <a href="#giveaways" class="docs-nav-btn" onclick="navigate('giveaways')">Giveaways →</a>
+            </div>
+        </section>
+
+        <!-- GIVEAWAYS -->
+        <section class="docs-section hidden" id="giveaways">
+            <div class="docs-breadcrumb">Engagement</div>
+            <h1 class="docs-title">Giveaways</h1>
+            <p class="docs-lead">Run timed giveaways with multiple winners, role requirements, and reroll support.</p>
+
+            <h2>How it works</h2>
+            <p>Fade posts a giveaway embed with a button members click to enter. When the timer expires, Fade randomly selects the configured number of winners and announces them. If a winner can't be contacted or you want to pick again, use reroll.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/giveaway start &lt;duration&gt; &lt;prize&gt; &lt;winners&gt; [channel]</code><span>Start a giveaway. Duration format: 1d, 12h, 30m.</span></div>
+                <div class="cmd-row"><code>/giveaway end &lt;message_id&gt;</code><span>End a giveaway early and pick winners immediately</span></div>
+                <div class="cmd-row"><code>/giveaway reroll &lt;message_id&gt;</code><span>Pick new winners for a finished giveaway</span></div>
+                <div class="cmd-row"><code>/giveaway list</code><span>View all currently active giveaways</span></div>
+            </div>
+
+            <div class="docs-callout callout-tip">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div>You can run multiple giveaways simultaneously in different channels.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#leveling" class="docs-nav-btn" onclick="navigate('leveling')">← Leveling</a>
+                <a href="#bump-reminder" class="docs-nav-btn" onclick="navigate('bump-reminder')">Bump Reminder →</a>
+            </div>
+        </section>
+
+        <!-- BUMP REMINDER -->
+        <section class="docs-section hidden" id="bump-reminder">
+            <div class="docs-breadcrumb">Engagement</div>
+            <h1 class="docs-title">Bump Reminder</h1>
+            <p class="docs-lead">Never miss a Disboard bump again — Fade automatically reminds your server exactly 2 hours after the last bump.</p>
+
+            <h2>How it works</h2>
+            <p>Fade listens for Disboard's bump confirmation message. When it detects one, it starts a 2-hour timer. When the timer expires, it pings the configured role in the configured channel to let your team know it's time to bump again. Consistent bumping keeps your server visible in Disboard's listings.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/bumpreminder enable &lt;channel&gt;</code><span>Enable bump reminders and set the channel for notifications</span></div>
+                <div class="cmd-row"><code>/bumpreminder role &lt;role&gt;</code><span>Set the role to ping when it's time to bump</span></div>
+                <div class="cmd-row"><code>/bumpreminder disable</code><span>Turn off bump reminders</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#giveaways" class="docs-nav-btn" onclick="navigate('giveaways')">← Giveaways</a>
+                <a href="#counters" class="docs-nav-btn" onclick="navigate('counters')">Counters →</a>
+            </div>
+        </section>
+
+        <!-- COUNTERS -->
+        <section class="docs-section hidden" id="counters">
+            <div class="docs-breadcrumb">Engagement</div>
+            <h1 class="docs-title">Counters</h1>
+            <p class="docs-lead">Display live server stats in voice channel names that update automatically as your server grows.</p>
+
+            <h2>How it works</h2>
+            <p>Fade creates a voice channel with a name like <strong>Members: 1,234</strong> and updates it periodically as the count changes. Since members can't join stat channels, they serve purely as a visual display in your channel list — a great way to show off your server's size.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/counter create &lt;type&gt; [channel]</code><span>Create a counter. Fade creates a new voice channel if none is specified.</span></div>
+                <div class="cmd-row"><code>/counter delete &lt;channel&gt;</code><span>Remove a counter and delete its channel</span></div>
+                <div class="cmd-row"><code>/counter list</code><span>View all active counters in your server</span></div>
+            </div>
+
+            <h2>Counter types</h2>
+            <div class="docs-table-wrap">
+                <table class="docs-table">
+                    <thead><tr><th>Type</th><th>Displays</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>members</code></td><td>Total member count including bots</td></tr>
+                        <tr><td><code>humans</code></td><td>Member count excluding bots</td></tr>
+                        <tr><td><code>bots</code></td><td>Number of bots in the server</td></tr>
+                        <tr><td><code>online</code></td><td>Currently online members</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#bump-reminder" class="docs-nav-btn" onclick="navigate('bump-reminder')">← Bump Reminder</a>
+                <a href="#responder" class="docs-nav-btn" onclick="navigate('responder')">Auto Responder →</a>
+            </div>
+        </section>
+
+        <!-- RESPONDER -->
+        <section class="docs-section hidden" id="responder">
+            <div class="docs-breadcrumb">Utility</div>
+            <h1 class="docs-title">Auto Responder</h1>
+            <p class="docs-lead">Automatically reply to messages that contain a specific trigger word or phrase — useful for FAQs, custom commands, and fun responses.</p>
+
+            <h2>How it works</h2>
+            <p>You define a trigger (a word or phrase) and a response. Whenever a message in your server contains that trigger, Fade replies with the configured response. Triggers are case-insensitive and match anywhere in the message.</p>
+            <p>Common uses: answering "what's the invite link?", responding to "!rules" with a rules summary, or adding personality to your server with fun auto-replies.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/responder add &lt;trigger&gt; &lt;response&gt;</code><span>Create a new trigger-response pair</span></div>
+                <div class="cmd-row"><code>/responder remove &lt;trigger&gt;</code><span>Delete a responder by its trigger</span></div>
+                <div class="cmd-row"><code>/responder list</code><span>View all configured responders in your server</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#counters" class="docs-nav-btn" onclick="navigate('counters')">← Counters</a>
+                <a href="#reaction-trigger" class="docs-nav-btn" onclick="navigate('reaction-trigger')">Reaction Triggers →</a>
+            </div>
+        </section>
+
+        <!-- REACTION TRIGGER -->
+        <section class="docs-section hidden" id="reaction-trigger">
+            <div class="docs-breadcrumb">Utility</div>
+            <h1 class="docs-title">Reaction Triggers</h1>
+            <p class="docs-lead">Automatically react to messages containing specific words or phrases with an emoji.</p>
+
+            <h2>How it works</h2>
+            <p>Similar to auto responder, but instead of sending a reply message, Fade adds an emoji reaction to the triggering message. Great for adding a 👍 to every "thank you", a 🎉 to announcements, or any other automatic reaction you want.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/reactiontrigger add &lt;trigger&gt; &lt;emoji&gt;</code><span>React with an emoji whenever a message contains the trigger</span></div>
+                <div class="cmd-row"><code>/reactiontrigger remove &lt;trigger&gt;</code><span>Remove a reaction trigger</span></div>
+                <div class="cmd-row"><code>/reactiontrigger list</code><span>View all configured reaction triggers</span></div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#responder" class="docs-nav-btn" onclick="navigate('responder')">← Auto Responder</a>
+                <a href="#snipe" class="docs-nav-btn" onclick="navigate('snipe')">Snipe →</a>
+            </div>
+        </section>
+
+        <!-- SNIPE -->
+        <section class="docs-section hidden" id="snipe">
+            <div class="docs-breadcrumb">Utility</div>
+            <h1 class="docs-title">Snipe</h1>
+            <p class="docs-lead">Retrieve the most recently deleted or edited message in a channel — useful for catching rule-breakers who delete their messages.</p>
+
+            <h2>How it works</h2>
+            <p>Fade keeps the last deleted and last edited message for each channel in memory. When you run <code>/snipe</code>, it shows you that message along with who sent it and when. This data is stored in memory only and is cleared when the bot restarts.</p>
+
+            <h2>Commands</h2>
+            <div class="docs-cmd-block">
+                <div class="cmd-row"><code>/snipe [channel]</code><span>Show the last deleted message in the current (or specified) channel</span></div>
+                <div class="cmd-row"><code>/editsnipe [channel]</code><span>Show the last edited message, with before and after content</span></div>
+            </div>
+
+            <div class="docs-callout callout-info">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <div>For a permanent record of deleted messages, set up <a href="#logging" onclick="navigate('logging')" style="color:var(--accent-soft)">Logging</a> — it stores deleted messages even after a bot restart.</div>
+            </div>
+
+            <div class="docs-nav-footer">
+                <a href="#reaction-trigger" class="docs-nav-btn" onclick="navigate('reaction-trigger')">← Reaction Triggers</a>
+                <span></span>
+            </div>
+        </section>
+
+    
+<section id="detailed-usage" class="docs-section">
+    <div class="docs-header">
+        <span class="docs-label">Overview</span>
+        <h1>Detailed Feature Usage</h1>
+        <p class="docs-lead">Fade is packed with powerful features to help you manage and grow your community. Here is an in-depth look at how to use them.</p>
+    </div>
+    
+    <div class="docs-content">
+        <h3>Economy System</h3>
+        <p>The global economy system spans all servers using Fade. To get started, users can use the <code>/daily</code> command to claim their daily allowance. They can use <code>/work</code> to earn extra cash, and <code>/gamble</code> or <code>/slots</code> to multiply their earnings. Server admins can set up custom shops using <code>/shop create</code> where users can purchase custom roles or perks with their economy balance.</p>
+
+        <h3>Music Engine</h3>
+        <p>Our Studio Quality Audio Engine requires no setup. Simply join a voice channel and type <code>/play [song name or URL]</code>. Fade supports Spotify, Apple Music, SoundCloud, and direct URLs. You can manage the queue with <code>/queue</code>, toggle 24/7 playback with <code>/loop</code>, and even view synced lyrics using the <code>/lyrics</code> command while a song is playing.</p>
+
+        <h3>Advanced Antinuke</h3>
+        <p>To enable the Antinuke, run <code>/antinuke toggle true</code>. The system will automatically detect mass bans, channel deletions, and role modifications. If an admin or a rogue bot exceeds the threshold (e.g. 3 bans in 10 seconds), Fade will immediately strip their permissions and attempt to reverse the damage. You can configure thresholds using <code>/antinuke threshold</code>.</p>
+        
+        <h3>Leveling</h3>
+        <p>Keep your community active! Fade automatically awards XP as users chat. Server admins can use <code>/levelconfig</code> to adjust the multiplier or turn it off in certain channels. When users hit specific milestones, you can reward them automatically with role rewards using <code>/levelrewards add [level] [role]</code>.</p>
+    </div>
+</section>
+
+</main>
+
+    <!-- RIGHT TOC (on-page) -->
+    <aside class="docs-toc" id="docsToc"></aside>
+
+</div><!-- end docs-layout -->
+
+    <!-- Search Modal -->
+    <div class="search-modal-overlay" id="searchModalOverlay">
+        <div class="search-modal" id="searchModal">
+            <div class="search-modal-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <input type="text" placeholder="Search..." id="modalSearchInput" autocomplete="off">
+                <kbd class="esc-badge">ESC</kbd>
+            </div>
+            <div class="search-modal-results">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+<script>
+const sections = document.querySelectorAll('.docs-section');
+const links = document.querySelectorAll('.sidebar-link');
+
+function navigate(id) {
+    sections.forEach(s => s.classList.add('hidden'));
+    links.forEach(l => l.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) { target.classList.remove('hidden'); window.scrollTo(0,0); }
+    const link = document.querySelector(`[data-section="${id}"]`);
+    if (link) link.classList.add('active');
+    history.pushState(null, '', '#' + id);
+    buildToc(target);
+}
+
+function buildToc(section) {
+    const toc = document.getElementById('docsToc');
+    if (!section) { toc.innerHTML = ''; return; }
+    const headings = section.querySelectorAll('h2');
+    if (!headings.length) { toc.innerHTML = ''; return; }
+    let html = '<span class="toc-label">On this page</span>';
+    headings.forEach(h => {
+        const id = h.textContent.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+        h.id = id;
+        html += `<a href="#${id}" class="toc-link">${h.textContent}</a>`;
+    });
+    toc.innerHTML = html;
+}
+
+links.forEach(l => l.addEventListener('click', e => {
+    e.preventDefault();
+    navigate(l.dataset.section);
+}));
+
+// Search Modal Logic
+const searchModalOverlay = document.getElementById('searchModalOverlay');
+const searchModal = document.getElementById('searchModal');
+const openSearchBtn = document.getElementById('openSearchBtn');
+const modalSearchInput = document.getElementById('modalSearchInput');
+
+function openSearch() {
+    searchModalOverlay.classList.add('active');
+    setTimeout(() => modalSearchInput.focus(), 50);
+}
+function closeSearch() {
+    searchModalOverlay.classList.remove('active');
+}
+
+if (openSearchBtn) openSearchBtn.addEventListener('click', openSearch);
+if (searchModalOverlay) searchModalOverlay.addEventListener('click', e => {
+    if (e.target === searchModalOverlay) closeSearch();
+});
+document.addEventListener('keydown', e => {
+    if (e.key === 'k' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        openSearch();
+    }
+    if (e.key === 'Escape' && searchModalOverlay && searchModalOverlay.classList.contains('active')) {
+        closeSearch();
+    }
+});
+
+// Build Search Index
+const searchIndex = [];
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.docs-section').forEach(section => {
+        const sectionId = section.id;
+        const breadcrumb = section.querySelector('.docs-breadcrumb')?.textContent || 'Documentation';
+        const title = section.querySelector('h1')?.textContent || '';
+        
+        // Index main section
+        searchIndex.push({
+            id: sectionId,
+            breadcrumb: breadcrumb,
+            title: title,
+            snippet: section.querySelector('p')?.textContent.substring(0, 80) + '...' || '',
+            text: (title + ' ' + (section.textContent || '')).toLowerCase()
+        });
+
+        // Index sub-sections (h2)
+        section.querySelectorAll('h2').forEach(h2 => {
+            const subTitle = h2.textContent;
+            let p = h2.nextElementSibling;
+            let snippet = '';
+            if (p && p.tagName === 'P') {
+                snippet = p.textContent.substring(0, 80) + '...';
+            }
+            searchIndex.push({
+                id: sectionId, 
+                breadcrumb: breadcrumb + ' &rsaquo; ' + title,
+                title: subTitle,
+                snippet: snippet,
+                text: (subTitle + ' ' + (p ? p.textContent : '')).toLowerCase()
+            });
+        });
+    });
+});
+
+// Update modal UI based on input
+if (modalSearchInput) {
+    modalSearchInput.addEventListener('input', e => {
+        const query = e.target.value.toLowerCase().trim();
+        if (query !== '') {
+            searchModal.classList.add('has-results');
+            
+            const resultsContainer = document.querySelector('.search-modal-results');
+            resultsContainer.innerHTML = '';
+            
+            // Search algorithm
+            const matches = searchIndex.filter(item => item.text.includes(query)).slice(0, 8);
+            
+            if (matches.length === 0) {
+                resultsContainer.innerHTML = '<div style="padding:16px;color:var(--text-3);text-align:center;">No results found.</div>';
+            } else {
+                matches.forEach(match => {
+                    const el = document.createElement('div');
+                    el.className = 'search-result-item';
+                    el.innerHTML = `
+                        <div class="sr-icon">#</div>
+                        <div class="sr-content">
+                            <div class="sr-breadcrumb">${match.breadcrumb}</div>
+                            <div class="sr-title">${match.title}</div>
+                            <div class="sr-snippet">${match.snippet}</div>
+                        </div>
+                        <div class="sr-arrow">&rsaquo;</div>
+                    `;
+                    el.addEventListener('click', () => {
+                        closeSearch();
+                        navigate(match.id);
+                        modalSearchInput.value = '';
+                        searchModal.classList.remove('has-results');
+                    });
+                    resultsContainer.appendChild(el);
+                });
+            }
+        } else {
+            searchModal.classList.remove('has-results');
+        }
+    });
+}
+
+// Init from hash
+if (window.location.hash) {
+    navigate(window.location.hash.substring(1));
+} else {
+    buildToc(document.getElementById('introduction'));
+}
+
+// Theme Toggle Logic
+const themeBtn = document.querySelector('.dhn-theme-btn');
+const moonIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+const sunIcon = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+
+if (themeBtn) {
+    // Check local storage for theme preference
+    const savedTheme = localStorage.getItem('fade-theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeBtn.innerHTML = sunIcon;
+    }
+
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        themeBtn.innerHTML = isLight ? sunIcon : moonIcon;
+        localStorage.setItem('fade-theme', isLight ? 'light' : 'dark');
+    });
+}
+</script>
+</body>
+</html>
