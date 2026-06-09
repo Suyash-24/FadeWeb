@@ -1031,7 +1031,7 @@ a{text-decoration:none;color:inherit}
     font-size:clamp(40px,6vw,64px);font-weight:900;
     letter-spacing:-2px;margin-bottom:16px;
     background:linear-gradient(135deg, #fff, #e8919b);
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
     text-shadow:0 10px 30px rgba(232,145,155,0.2);
 }
 .faq-hero p{font-size:17px;color:var(--text-2);max-width:540px;margin:0 auto}
