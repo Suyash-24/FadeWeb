@@ -403,6 +403,7 @@
     align-items: center;
     gap: 4px;
     transition: background .2s;
+    white-space: nowrap;
 }
 .dhn-btn-support:hover { background: #d65a6b; }
 .dhn-theme-btn {
