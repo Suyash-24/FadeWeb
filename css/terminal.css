@@ -560,7 +560,7 @@
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
     .cmd-page { grid-template-columns: 1fr; padding-top: 100px; }
-    .cmd-sidebar { position: static; margin-bottom: 24px; }
+    .cmd-sidebar { position: static; margin-bottom: 24px; height: auto; }
     .cmd-nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 12px; gap: 8px; scrollbar-width: none; }
     .cmd-nav::-webkit-scrollbar { display: none; }
     .cmd-nav-item { flex-shrink: 0; }
