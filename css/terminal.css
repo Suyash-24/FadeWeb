@@ -560,9 +560,11 @@
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
     .cmd-page { grid-template-columns: 1fr; padding-top: 100px; }
-    .cmd-sidebar { position: static; }
-    .cmd-nav { flex-direction: row; flex-wrap: wrap; }
-    .cmd-search-wrap { width: 100%; }
+    .cmd-sidebar { position: static; margin-bottom: 24px; }
+    .cmd-nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 12px; gap: 8px; scrollbar-width: none; }
+    .cmd-nav::-webkit-scrollbar { display: none; }
+    .cmd-nav-item { flex-shrink: 0; }
+    .cmd-search-wrap { width: 100%; margin-bottom: 16px; }
     .cmd-nav-item .nav-icon { display: none; }
     .cmd-nav-item .nav-count { display: none; }
 }
