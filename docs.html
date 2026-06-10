@@ -1130,6 +1130,22 @@ if (themeBtn) {
         localStorage.setItem('fade-theme', isLight ? 'light' : 'dark');
     });
 }
+
+// Docs Mobile Sidebar Toggle (Inline to bypass cache)
+const inlineDocsHamburger = document.getElementById('docsHamburger');
+const inlineDocsSidebar = document.getElementById('sidebar');
+if (inlineDocsHamburger && inlineDocsSidebar) {
+  inlineDocsHamburger.addEventListener('click', () => {
+    inlineDocsSidebar.classList.toggle('active');
+    document.body.style.overflow = inlineDocsSidebar.classList.contains('active') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.sidebar-link').forEach(link => {
+    link.addEventListener('click', () => {
+      inlineDocsSidebar.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
 </script>
 <script src="js/main.js?v=3"></script>
 </body>
