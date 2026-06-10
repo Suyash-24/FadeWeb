@@ -627,3 +627,11 @@ body.light-theme .docs-nav-btn:hover {
 body.light-theme .callout-info { background: rgba(120,90,255,0.1); }
 body.light-theme .callout-tip { background: rgba(80,196,120,0.15); }
 body.light-theme .callout-warn { background: rgba(240,180,50,0.15); }
+
+@media (max-width: 700px) {
+    .cmd-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
