@@ -559,11 +559,12 @@
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-    .cmd-page { grid-template-columns: 1fr; padding-top: 100px; }
-    .cmd-sidebar { position: static; margin-bottom: 24px; height: auto; }
+    .cmd-page { grid-template-columns: 1fr; grid-template-rows: auto 1fr; padding-top: 100px; gap: 24px; align-content: start; }
+    .cmd-sidebar { position: static; margin-bottom: 8px; height: auto; }
     .cmd-nav { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 12px; gap: 8px; scrollbar-width: none; }
     .cmd-nav::-webkit-scrollbar { display: none; }
-    .cmd-nav-item { flex-shrink: 0; }
+    .cmd-nav-item { flex-shrink: 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 100px; padding: 8px 16px; }
+    .cmd-nav-item.active { background: rgba(196,80,95,0.15); border-color: rgba(232,145,155,0.3); }
     .cmd-search-wrap { width: 100%; margin-bottom: 16px; }
     .cmd-nav-item .nav-icon { display: none; }
     .cmd-nav-item .nav-count { display: none; }
