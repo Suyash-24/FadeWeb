@@ -110,40 +110,57 @@ document.querySelectorAll('.card').forEach(card => {
 });
 
 // ──────────────────────────────────────────────────────
-// Counter animation (stats section)
+// Fetch live stats + Counter animation (stats section)
 // ──────────────────────────────────────────────────────
-const counterIO = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.dataset.count) || 0;
-            const suffix = el.dataset.suffix || '';
-            const prefix = el.dataset.prefix || '';
-            const duration = 2000;
-            const start = performance.now();
-
-            if (target === 0) {
-                el.textContent = prefix + '0' + suffix;
-                counterIO.unobserve(el);
-                return;
+(async () => {
+    // Fetch real server count before starting counter animations
+    try {
+        const res = await fetch('/stats.json?_=' + Date.now());
+        if (res.ok) {
+            const data = await res.json();
+            const el = document.getElementById('serverCount');
+            if (el && data.servers) {
+                el.dataset.count = data.servers;
             }
-
-            function tick(now) {
-                const elapsed = now - start;
-                const progress = Math.min(elapsed / duration, 1);
-                // Ease out expo
-                const ease = 1 - Math.pow(2, -10 * progress);
-                const current = Math.round(target * ease);
-                el.textContent = prefix + current.toLocaleString() + (progress >= 1 ? suffix : '');
-                if (progress < 1) requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
-            counterIO.unobserve(el);
         }
-    });
-}, { threshold: 0.5 });
+    } catch (e) {
+        // Silently fall back to the hardcoded value in data-count
+    }
 
-document.querySelectorAll('.stat-num[data-count]').forEach(el => counterIO.observe(el));
+    // Now start counter animations with the correct data
+    const counterIO = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.count) || 0;
+                const suffix = el.dataset.suffix || '';
+                const prefix = el.dataset.prefix || '';
+                const duration = 2000;
+                const start = performance.now();
+
+                if (target === 0) {
+                    el.textContent = prefix + '0' + suffix;
+                    counterIO.unobserve(el);
+                    return;
+                }
+
+                function tick(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out expo
+                    const ease = 1 - Math.pow(2, -10 * progress);
+                    const current = Math.round(target * ease);
+                    el.textContent = prefix + current.toLocaleString() + (progress >= 1 ? suffix : '');
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+                counterIO.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-num[data-count]').forEach(el => counterIO.observe(el));
+})();
 
 // ──────────────────────────────────────────────────────
 // Smooth parallax on floating cards
