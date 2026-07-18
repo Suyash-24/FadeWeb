@@ -1218,6 +1218,16 @@
                         <p class="cmd-card-desc">Display detailed information about this server</p>
                     </div>
 
+                    <div class="cmd-card" data-cmd="serverstats" data-desc="View a detailed analytics dashboard for this server" data-usage="/serverstats" data-category-name="General" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">serverstats</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/serverstats',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View a detailed analytics dashboard for this server</p>
+                    </div>
+
                     <div class="cmd-card" data-cmd="userinfo" data-desc="Display information about a user" data-usage="/userinfo" data-category-name="General" data-perms="None">
                         <div class="cmd-card-top">
                             <span class="cmd-card-name">userinfo</span>
@@ -1694,14 +1704,34 @@
                         <p class="cmd-card-desc">Ban a member from the server</p>
                     </div>
 
-                    <div class="cmd-card" data-cmd="case" data-desc="Look up a specific moderation case" data-usage="/case" data-category-name="Moderation" data-perms="None">
+                    <div class="cmd-card" data-cmd="case delete" data-desc="Delete a case (requires Manage Guild)" data-usage="/case delete" data-category-name="Moderation" data-perms="None">
                         <div class="cmd-card-top">
-                            <span class="cmd-card-name">case</span>
-                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/case',this)">
+                            <span class="cmd-card-name">case delete</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/case delete',this)">
                                 <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                             </button>
                         </div>
-                        <p class="cmd-card-desc">Look up a specific moderation case</p>
+                        <p class="cmd-card-desc">Delete a case (requires Manage Guild)</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="case edit" data-desc="Edit a case reason" data-usage="/case edit" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">case edit</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/case edit',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Edit a case reason</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="case view" data-desc="View a case" data-usage="/case view" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">case view</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/case view',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View a case</p>
                     </div>
 
                     <div class="cmd-card" data-cmd="emoji" data-desc="Manage server emojis." data-usage="/emoji" data-category-name="Moderation" data-perms="None">
@@ -1764,6 +1794,16 @@
                         <p class="cmd-card-desc">Revoke a fake permission from a role</p>
                     </div>
 
+                    <div class="cmd-card" data-cmd="hardban" data-desc="Permanently ban and blacklist a user (cannot be unbanned except via unhardban)" data-usage="/hardban" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">hardban</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/hardban',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Permanently ban and blacklist a user (cannot be unbanned except via unhardban)</p>
+                    </div>
+
                     <div class="cmd-card" data-cmd="invoke dm" data-desc="Set the DM sent to the punished user" data-usage="/invoke dm" data-category-name="Moderation" data-perms="None">
                         <div class="cmd-card-top">
                             <span class="cmd-card-name">invoke dm</span>
@@ -1814,6 +1854,26 @@
                         <p class="cmd-card-desc">Kick a member from the server</p>
                     </div>
 
+                    <div class="cmd-card" data-cmd="lock" data-desc="Lock a channel or the entire server" data-usage="/lock" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">lock</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/lock',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Lock a channel or the entire server</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="massban" data-desc="Ban multiple users by ID at once" data-usage="/massban" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">massban</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/massban',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Ban multiple users by ID at once</p>
+                    </div>
+
                     <div class="cmd-card" data-cmd="modhistory" data-desc="View moderation history for a user" data-usage="/modhistory" data-category-name="Moderation" data-perms="None">
                         <div class="cmd-card-top">
                             <span class="cmd-card-name">modhistory</span>
@@ -1822,6 +1882,16 @@
                             </button>
                         </div>
                         <p class="cmd-card-desc">View moderation history for a user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="modstats" data-desc="View moderator action statistics" data-usage="/modstats" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">modstats</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/modstats',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View moderator action statistics</p>
                     </div>
 
                     <div class="cmd-card" data-cmd="mute" data-desc="Timeout (mute) a member" data-usage="/mute" data-category-name="Moderation" data-perms="None">
@@ -1884,6 +1954,16 @@
                         <p class="cmd-card-desc">Steal an emoji or sticker from a message.</p>
                     </div>
 
+                    <div class="cmd-card" data-cmd="strip" data-desc="Remove all roles from a member" data-usage="/strip" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">strip</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/strip',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove all roles from a member</p>
+                    </div>
+
                     <div class="cmd-card" data-cmd="unban" data-desc="Unban a user from the server" data-usage="/unban" data-category-name="Moderation" data-perms="None">
                         <div class="cmd-card-top">
                             <span class="cmd-card-name">unban</span>
@@ -1892,6 +1972,26 @@
                             </button>
                         </div>
                         <p class="cmd-card-desc">Unban a user from the server</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="unhardban" data-desc="Remove a user from the hardban blacklist and unban them" data-usage="/unhardban" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">unhardban</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/unhardban',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove a user from the hardban blacklist and unban them</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="unlock" data-desc="Unlock a locked channel or the entire server" data-usage="/unlock" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">unlock</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/unlock',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Unlock a locked channel or the entire server</p>
                     </div>
 
                     <div class="cmd-card" data-cmd="unmute" data-desc="Remove a timeout from a member" data-usage="/unmute" data-category-name="Moderation" data-perms="None">
@@ -1922,6 +2022,46 @@
                             </button>
                         </div>
                         <p class="cmd-card-desc">View or clear warnings for a user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="warnthreshold add" data-desc="Add or update a warning threshold" data-usage="/warnthreshold add" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">warnthreshold add</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/warnthreshold add',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Add or update a warning threshold</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="warnthreshold clear" data-desc="Remove all warning thresholds" data-usage="/warnthreshold clear" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">warnthreshold clear</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/warnthreshold clear',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove all warning thresholds</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="warnthreshold list" data-desc="List all warning thresholds" data-usage="/warnthreshold list" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">warnthreshold list</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/warnthreshold list',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">List all warning thresholds</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="warnthreshold remove" data-desc="Remove a warning threshold" data-usage="/warnthreshold remove" data-category-name="Moderation" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">warnthreshold remove</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/warnthreshold remove',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove a warning threshold</p>
                     </div>
                 </div>
 
@@ -2118,6 +2258,46 @@
                         <p class="cmd-card-desc">Custom embed builder (prefix only — use f!ce)</p>
                     </div>
 
+                    <div class="cmd-card" data-cmd="confession ban" data-desc="Ban a user from confessing (mods only, requires the confession ID)" data-usage="/confession ban" data-category-name="Utility" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">confession ban</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/confession ban',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Ban a user from confessing (mods only, requires the confession ID)</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="confession disable" data-desc="Disable confessions" data-usage="/confession disable" data-category-name="Utility" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">confession disable</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/confession disable',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Disable confessions</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="confession send" data-desc="Send an anonymous confession to this server" data-usage="/confession send" data-category-name="Utility" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">confession send</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/confession send',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Send an anonymous confession to this server</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="confession setup" data-desc="Set up the confession channel" data-usage="/confession setup" data-category-name="Utility" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">confession setup</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/confession setup',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Set up the confession channel</p>
+                    </div>
+
                     <div class="cmd-card" data-cmd="counter create" data-desc="Create a counter channel" data-usage="/counter create" data-category-name="Utility" data-perms="None">
                         <div class="cmd-card-top">
                             <span class="cmd-card-name">counter create</span>
@@ -2246,6 +2426,26 @@
                             </button>
                         </div>
                         <p class="cmd-card-desc">See how many memories Fade has stored</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="poll create" data-desc="Create a new poll" data-usage="/poll create" data-category-name="Utility" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">poll create</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/poll create',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Create a new poll</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="poll end" data-desc="End a poll early" data-usage="/poll end" data-category-name="Utility" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">poll end</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/poll end',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">End a poll early</p>
                     </div>
 
                     <div class="cmd-card" data-cmd="reactiontrigger add" data-desc="Add a reaction trigger" data-usage="/reactiontrigger add" data-category-name="Utility" data-perms="None">
@@ -2726,10 +2926,10 @@
                         <p class="cmd-card-desc">Admin tool to manually award reputation</p>
                     </div>
 
-                    <div class="cmd-card" data-cmd="thank" data-desc="Award reputation to a user" data-usage="/thank" data-category-name="Reputation" data-perms="None">
+                    <div class="cmd-card" data-cmd="reputation" data-desc="Award reputation to a user" data-usage="/reputation" data-category-name="Reputation" data-perms="None">
                         <div class="cmd-card-top">
-                            <span class="cmd-card-name">thank</span>
-                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/thank',this)">
+                            <span class="cmd-card-name">reputation</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/reputation',this)">
                                 <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                             </button>
                         </div>
@@ -2739,6 +2939,46 @@
 
 <!-- ─── Roles ───────────────────────────────── -->
 <div class="cmd-section" data-category="roles">
+
+                    <div class="cmd-card" data-cmd="autorole add" data-desc="Add a role to be automatically assigned" data-usage="/autorole add" data-category-name="Roles" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">autorole add</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/autorole add',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Add a role to be automatically assigned</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="autorole clear" data-desc="Remove all autoroles" data-usage="/autorole clear" data-category-name="Roles" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">autorole clear</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/autorole clear',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove all autoroles</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="autorole list" data-desc="Show all configured autoroles" data-usage="/autorole list" data-category-name="Roles" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">autorole list</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/autorole list',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Show all configured autoroles</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="autorole remove" data-desc="Remove an autorole" data-usage="/autorole remove" data-category-name="Roles" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">autorole remove</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/autorole remove',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove an autorole</p>
+                    </div>
 
                     <div class="cmd-card" data-cmd="boosterrole cleanup" data-desc="Remove booster roles from members who are no longer boosting" data-usage="/boosterrole cleanup" data-category-name="Roles" data-perms="None">
                         <div class="cmd-card-top">
@@ -2970,6 +3210,16 @@
                         <p class="cmd-card-desc">Remove a specific role button from a message</p>
                     </div>
 
+                    <div class="cmd-card" data-cmd="roleicon" data-desc="Set or remove a role icon." data-usage="/roleicon" data-category-name="Roles" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">roleicon</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/roleicon',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Set or remove a role icon.</p>
+                    </div>
+
                     <div class="cmd-card" data-cmd="servertag channel" data-desc="Set the channel where award messages are sent" data-usage="/servertag channel" data-category-name="Roles" data-perms="None">
                         <div class="cmd-card-top">
                             <span class="cmd-card-name">servertag channel</span>
@@ -3157,6 +3407,16 @@
                         </div>
                         <p class="cmd-card-desc">Manage custom role aliases.</p>
                     </div>
+
+                    <div class="cmd-card" data-cmd="translator" data-desc="Enable or disable the flag emoji translator." data-usage="/translator" data-category-name="Server" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">translator</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/translator',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Enable or disable the flag emoji translator.</p>
+                    </div>
                 </div>
 
 <!-- ─── Starboard ───────────────────────────────── -->
@@ -3310,6 +3570,180 @@
                             </button>
                         </div>
                         <p class="cmd-card-desc">View current starboard settings</p>
+                    </div>
+                </div>
+
+<!-- ─── Stats ───────────────────────────────── -->
+<div class="cmd-section" data-category="stats">
+
+                    <div class="cmd-card" data-cmd="channelstats" data-desc="Check activity stats for a specific channel" data-usage="/channelstats" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">channelstats</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/channelstats',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Check activity stats for a specific channel</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="invited" data-desc="View the users someone has invited" data-usage="/invited" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">invited</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/invited',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View the users someone has invited</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="invitelb" data-desc="View the invite leaderboard" data-usage="/invitelb" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">invitelb</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/invitelb',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View the invite leaderboard</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="inviter" data-desc="Find out who invited a user" data-usage="/inviter" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">inviter</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/inviter',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Find out who invited a user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="invites" data-desc="Check invite stats for yourself or another user" data-usage="/invites" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">invites</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/invites',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Check invite stats for yourself or another user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats addmessages" data-desc="Add messages to a user\'s count" data-usage="/managestats addmessages" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats addmessages</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats addmessages',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Add messages to a user\'s count</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats addvctime" data-desc="Add voice time to a user" data-usage="/managestats addvctime" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats addvctime</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats addvctime',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Add voice time to a user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats blacklistcategory" data-desc="Exclude an entire category from being tracked in stats" data-usage="/managestats blacklistcategory" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats blacklistcategory</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats blacklistcategory',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Exclude an entire category from being tracked in stats</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats blacklistchannel" data-desc="Exclude a channel from being tracked in stats" data-usage="/managestats blacklistchannel" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats blacklistchannel</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats blacklistchannel',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Exclude a channel from being tracked in stats</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats removemessages" data-desc="Remove messages from a user\'s count" data-usage="/managestats removemessages" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats removemessages</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats removemessages',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove messages from a user\'s count</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats removevctime" data-desc="Remove voice time from a user" data-usage="/managestats removevctime" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats removevctime</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats removevctime',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Remove voice time from a user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats resetmessages" data-desc="Reset message stats for a user or entire server" data-usage="/managestats resetmessages" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats resetmessages</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats resetmessages',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Reset message stats for a user or entire server</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="managestats resetvoice" data-desc="Reset voice stats for a user or entire server" data-usage="/managestats resetvoice" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">managestats resetvoice</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/managestats resetvoice',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Reset voice stats for a user or entire server</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="messages" data-desc="Check message count for yourself or another user" data-usage="/messages" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">messages</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/messages',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Check message count for yourself or another user</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="msglb" data-desc="View the message leaderboard" data-usage="/msglb" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">msglb</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/msglb',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View the message leaderboard</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="vclb" data-desc="View the voice activity leaderboard" data-usage="/vclb" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">vclb</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/vclb',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">View the voice activity leaderboard</p>
+                    </div>
+
+                    <div class="cmd-card" data-cmd="voicestats" data-desc="Check voice activity for yourself or another user" data-usage="/voicestats" data-category-name="Stats" data-perms="None">
+                        <div class="cmd-card-top">
+                            <span class="cmd-card-name">voicestats</span>
+                            <button class="cmd-card-copy" title="Copy command" onclick="event.stopPropagation();copyCmd('/voicestats',this)">
+                                <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            </button>
+                        </div>
+                        <p class="cmd-card-desc">Check voice activity for yourself or another user</p>
                     </div>
                 </div>
 
