@@ -1,0 +1,1009 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commands | Fade</title>
+<meta name="description" content="Search every Fade command, or open a module to browse its commands and subcommands.">
+<meta name="theme-color" content="#FF4F9A">
+<link rel="icon" href="logo.png">
+<meta property="og:site_name" content="Fade">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Commands | Fade">
+<meta property="og:description" content="Search every Fade command, or open a module to browse its commands and subcommands.">
+<meta name="twitter:card" content="summary">
+<script>
+(function () {
+  var h = document.documentElement;
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('js');
+  setTimeout(function () { h.classList.add('ready'); }, 2500);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2B0B24; --pink:#FF4F9A; --lime:#E8FF59; --lilac:#C9B8FF; --blush:#FFF3F8; --rose:#FFC2D6;
+  --display:'Bricolage Grotesque','Geist',system-ui,sans-serif;
+  --mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --rad:clamp(28px,4vw,56px);
+  --ease:cubic-bezier(.2,.9,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.lock{overflow:hidden}
+body{margin:0;font-family:'Geist',system-ui,sans-serif;background:var(--blush);color:var(--plum);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+button{color:inherit}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;animation:none !important}
+}
+
+/* page chrome */
+.prog-top{position:fixed;top:0;left:0;width:100%;height:4px;background:#fff;mix-blend-mode:difference;transform-origin:left;transform:scaleX(var(--sp,0));z-index:9998;pointer-events:none}
+
+
+.wrap{max-width:1328px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:999px;border:1.5px solid transparent;font-size:17px;font-weight:600;cursor:pointer;transition:background .2s,color .2s,transform .35s var(--ease)}
+.btn-sm{height:46px;padding:0 22px;font-size:15px}
+.btn-lg{height:68px;padding:0 40px;font-size:20px}
+.btn-plum{background:var(--plum);color:var(--blush)}
+.btn-plum:hover{background:var(--lime);color:var(--plum)}
+.btn-outline{border-color:var(--plum);color:var(--plum);font-weight:500;background:transparent}
+.btn-outline:hover{background:rgba(43,11,36,.1)}
+
+mark{background:var(--lime);color:var(--plum);border-radius:3px;padding:0 2px}
+
+/* hero */
+.hero{position:relative;z-index:2;background:var(--pink);color:var(--plum);border-radius:0 0 var(--rad) var(--rad);overflow:hidden}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4vw,56px)}
+.logo{font-family:var(--display);font-weight:800;font-size:32px;line-height:1;letter-spacing:-.05em}
+.nav-right{display:flex;align-items:center;gap:36px}
+.nav-links{display:flex;gap:32px;font-size:16px;font-weight:500}
+.nav-links a:hover{opacity:.65}
+.nav-links a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+@media (max-width:820px){.nav-links{display:none}}
+.js .nav{opacity:0;translate:0 -18px}
+.ready .nav{opacity:1;translate:0 0;transition:opacity .8s ease .1s,translate .9s var(--ease) .1s}
+.hero-main{padding:clamp(24px,4vw,56px) clamp(20px,4vw,56px) clamp(64px,8vw,112px)}
+.hero h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(44px,7vw,108px);line-height:.94;letter-spacing:-.045em}
+.ln{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.ln>span{display:block}
+.js .ln>span{translate:0 108%}
+.ready .ln>span{translate:0 0;transition:translate 1.1s var(--ease);transition-delay:calc(.15s + var(--i) * .11s)}
+.js .fi{opacity:0;translate:0 22px}
+.ready .fi{opacity:1;translate:0 0;transition:opacity .8s ease,translate .9s var(--ease);transition-delay:calc(.6s + var(--i) * .12s)}
+.hero .sum{margin:24px 0 0;font-size:18px;line-height:1.5}
+
+/* slash picker */
+.picker{max-width:880px;margin-top:32px;padding:8px;border-radius:32px;background:var(--plum);color:var(--blush)}
+.pk-head{margin:0;padding:14px 16px 10px;font-family:var(--mono);font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,243,248,.75)}
+.pk-list{list-style:none;margin:0;padding:0 6px 8px;min-height:calc(5 * 54px + 8px)}
+.pk-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:6px 16px;height:54px;padding:0 16px;border-radius:18px;cursor:pointer}
+.pk-row[aria-selected="true"]{background:rgba(255,243,248,.12);box-shadow:inset 3px 0 0 var(--pink)}
+.pk-name{font-family:var(--mono);font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pk-name i{font-style:normal;color:var(--lime)}
+.pk-desc{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px;color:rgba(255,243,248,.8)}
+.pk-mod{padding:4px 11px;border-radius:999px;border:1px solid rgba(255,243,248,.32);font-size:12.5px;color:rgba(255,243,248,.88)}
+.pk-none{padding:16px;font-size:16px;color:rgba(255,243,248,.85)}
+.pk-bar{position:relative;display:flex;align-items:center;gap:12px;height:68px;padding:0 20px 0 14px;border-radius:24px;background:rgba(255,243,248,.1);transition:box-shadow .2s}
+.pk-bar:focus-within{box-shadow:0 0 0 2px var(--lime)}
+.pk-plus{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:rgba(255,243,248,.18)}
+.pk-slash{flex:none;font-family:var(--mono);font-size:22px;font-weight:600;color:var(--lime)}
+.pk-field{position:relative;flex:1;min-width:0;height:100%}
+.pk-field input{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;color:var(--blush);font-size:20px;outline:0;caret-color:var(--lime);appearance:none;-webkit-appearance:none}
+.pk-field input::placeholder{color:rgba(255,243,248,.62)}
+.pk-field input::-webkit-search-cancel-button{display:none}
+.pk-ghost{position:absolute;inset:0;display:flex;align-items:center;font-size:20px;pointer-events:none;white-space:nowrap}
+.pk-ghost::after{content:"";width:2px;height:1.2em;margin-left:2px;background:var(--lime);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.pk-kbd{flex:none;display:inline-flex;align-items:center;justify-content:center;height:30px;padding:0 10px;border-radius:8px;border:1.5px solid rgba(255,243,248,.35);font-family:var(--mono);font-size:13px;color:rgba(255,243,248,.8)}
+@media (max-width:640px){
+  .pk-list{min-height:calc(5 * 62px + 8px)}
+  .pk-row{grid-template-columns:minmax(0,1fr);height:62px;align-content:center;gap:2px;padding:0 14px}
+  .pk-name{font-size:15px}
+  .pk-desc{font-size:14px}
+  .pk-mod,.pk-kbd{display:none}
+  .pk-bar{height:60px}
+  .pk-field input,.pk-ghost{font-size:17px}
+}
+
+/* marquee */
+.marq{position:relative;z-index:1;overflow:hidden;background:var(--lime);color:var(--plum);margin-top:calc(var(--rad) * -1);padding:calc(var(--rad) + 18px) 0 26px}
+.marq-track{display:flex;width:max-content;animation:mq 70s linear infinite}
+.marq-track span{padding-right:.45em;font-family:var(--display);font-weight:800;font-size:clamp(44px,7vw,104px);line-height:1.02;letter-spacing:-.045em;white-space:nowrap}
+.marq-track .o{color:transparent;-webkit-text-stroke:2px var(--plum)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* module colors, shared by tiles and the sheet */
+.c-plum{--bg:var(--plum);--fg:var(--blush);--soft:rgba(255,243,248,.1);--soft2:rgba(255,243,248,.18);--line:rgba(255,243,248,.34)}
+.c-pink{--bg:var(--pink);--fg:var(--plum);--soft:rgba(43,11,36,.1);--soft2:rgba(43,11,36,.17);--line:rgba(43,11,36,.4)}
+.c-lilac{--bg:var(--lilac);--fg:var(--plum);--soft:rgba(43,11,36,.08);--soft2:rgba(43,11,36,.15);--line:rgba(43,11,36,.36)}
+.c-rose{--bg:var(--rose);--fg:var(--plum);--soft:rgba(43,11,36,.08);--soft2:rgba(43,11,36,.15);--line:rgba(43,11,36,.36)}
+.c-lime{--bg:var(--lime);--fg:var(--plum);--soft:rgba(43,11,36,.08);--soft2:rgba(43,11,36,.15);--line:rgba(43,11,36,.36)}
+.c-blush{--bg:var(--blush);--fg:var(--plum);--soft:rgba(43,11,36,.07);--soft2:rgba(43,11,36,.13);--line:rgba(43,11,36,.32)}
+
+/* browse bento */
+.browse{padding:clamp(56px,7vw,104px) clamp(20px,4vw,56px) calc(clamp(72px,9vw,140px) + var(--rad))}
+.b-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 40px;margin-bottom:clamp(28px,4vw,48px)}
+.b-head h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,88px);line-height:.95;letter-spacing:-.045em}
+.b-head p{margin:0;max-width:22em;font-size:18px;line-height:1.5}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:232px;grid-auto-flow:dense;gap:14px}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:16px;min-width:0;padding:22px;border:0;border-radius:32px;background:var(--bg);color:var(--fg);text-align:left;cursor:pointer;overflow:hidden;
+  transition:opacity .8s ease,translate .9s var(--ease),scale .5s var(--ease),rotate .5s var(--ease);
+  transition-delay:calc(var(--i,0) * 90ms),calc(var(--i,0) * 90ms),0s,0s}
+.tile.c-blush{box-shadow:inset 0 0 0 1.5px rgba(43,11,36,.28)}
+.tile.big{grid-column:span 2;grid-row:span 2}
+.tile.wide{grid-column:span 2}
+.tile:hover{scale:1.015;rotate:-.25deg}
+.tile:focus-visible{outline:3px solid var(--plum);outline-offset:4px}
+.js .tile{opacity:0;translate:0 44px}
+.js .tile.in{opacity:1;translate:0 0}
+.t-top{display:flex;align-items:center;justify-content:space-between}
+.t-ord{font-family:var(--mono);font-size:13px;font-weight:500;opacity:.85}
+.t-go{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);transition:background .25s,color .25s}
+.t-go svg{rotate:-45deg;transition:rotate .4s var(--ease)}
+.tile:hover .t-go{background:var(--fg);color:var(--bg)}
+.tile:hover .t-go svg{rotate:0deg}
+.t-main{display:block;min-width:0}
+.t-name{display:block;font-family:var(--display);font-weight:800;font-size:clamp(30px,2.8vw,40px);line-height:.98;letter-spacing:-.04em}
+.big .t-name{font-size:clamp(56px,6.5vw,104px);line-height:.92;letter-spacing:-.05em}
+.wide .t-name{font-size:clamp(40px,4vw,60px)}
+.t-cnt{display:block;margin-top:8px;font-size:15px;opacity:.9}
+.t-prev{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;overflow:hidden;max-height:28px}
+.big .t-prev{max-height:96px}
+.t-prev span{flex:none;height:28px;padding:0 10px;border-radius:999px;border:1.5px solid var(--line);font:500 12.5px/25px var(--mono);white-space:nowrap}
+@media (max-width:1100px){
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .tiles{grid-template-columns:minmax(0,1fr);grid-auto-rows:minmax(196px,auto)}
+  .tile.big,.tile.wide{grid-column:auto;grid-row:auto}
+  .big .t-name{font-size:clamp(44px,14vw,64px)}
+  .wide .t-name{font-size:clamp(36px,11vw,48px)}
+  .big .t-prev,.wide .t-prev{max-height:62px}
+}
+
+/* command sheet */
+.sheet{position:fixed;inset:0;z-index:9000}
+.sh-back{position:absolute;inset:0;background:rgba(43,11,36,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .5s ease}
+.sheet.open .sh-back{opacity:1}
+.sh-panel{position:absolute;left:clamp(0px,2vw,28px);right:clamp(0px,2vw,28px);top:clamp(20px,5vh,56px);bottom:0;overflow:auto;overscroll-behavior:contain;border-radius:var(--rad) var(--rad) 0 0;background:var(--bg);color:var(--fg);padding:0 clamp(20px,4vw,56px) 96px;translate:0 105%;transition:translate .75s var(--ease),background .5s ease,color .5s ease;outline:0}
+.sheet.open .sh-panel{translate:0 0}
+.sh-top{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:10px;padding:20px 0 14px;background:var(--bg);transition:background .5s ease}
+.sh-ord{flex:none;margin-right:6px;font-family:var(--mono);font-size:13px;font-weight:500}
+.sh-q{flex:1;min-width:0;height:48px;padding:0 20px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--fg);font-size:16px;outline:0;appearance:none;-webkit-appearance:none}
+.sh-q::placeholder{color:var(--fg);opacity:.7}
+.sh-q::-webkit-search-cancel-button{display:none}
+.sh-q:focus-visible{border-color:var(--fg);box-shadow:0 0 0 2px var(--fg)}
+.rb{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;transition:background .2s,color .2s}
+.rb:hover{background:var(--soft2)}
+.rb.solid{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.rb.solid:hover{opacity:.85}
+.sheet :focus-visible{outline-color:var(--fg)}
+.sh-title{padding:clamp(20px,3vw,40px) 0 clamp(24px,3vw,40px)}
+.sh-title h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(56px,11vw,176px);line-height:.9;letter-spacing:-.055em}
+.sh-title p{margin:16px 0 0;font-size:18px}
+.sheet.open .sh-title h2{animation:tIn .9s var(--ease) .12s both}
+@keyframes tIn{from{opacity:0;translate:0 48px}}
+.sh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:14px;align-items:start}
+.card{min-width:0;padding:22px 22px 20px;border-radius:26px;background:var(--soft);transition:background .25s}
+.card:hover{background:var(--soft2)}
+.sheet.open .sh-grid:not(.still) .card{animation:cIn .75s var(--ease) both;animation-delay:calc(.28s + var(--d,0) * 45ms)}
+@keyframes cIn{from{opacity:0;translate:0 40px}}
+.card.hit{animation:hit 1.4s ease 2}
+@keyframes hit{50%{box-shadow:0 0 0 4px var(--fg)}}
+.ctop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.cn{font-family:var(--mono);font-size:19px;font-weight:600;line-height:1.3;word-break:break-word;min-width:0}
+.cn .sl{opacity:.65}
+.cn .ssub{font-weight:500}
+.cp{flex:none;display:grid;place-items:center;width:44px;height:44px;margin:-8px -10px 0 0;border:0;border-radius:50%;background:transparent;color:var(--fg);cursor:pointer;transition:background .2s}
+.cp:hover{background:var(--soft2)}
+.cd{margin:8px 0 0;font-size:16px;line-height:1.45}
+.card.hs .cd{min-height:4.4em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.sc{height:36px;padding:0 13px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--fg);font:500 13px var(--mono);cursor:pointer;transition:background .2s,color .2s}
+.sc:hover{background:var(--soft2)}
+.sc[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.sheet mark{background:var(--fg);color:var(--bg)}
+@media (min-width:760px){.card.wide{grid-column:span 2}}
+.sh-empty{margin:40px 0;font-size:20px}
+@media (max-width:560px){
+  .sh-ord{display:none}
+  .rb{width:44px;height:44px}
+  .sh-q{height:44px;padding:0 16px}
+  .sh-top{gap:8px}
+}
+
+/* closing + footer */
+.closing{position:relative;overflow-x:clip;background:var(--pink);border-radius:var(--rad) var(--rad) 0 0;margin-top:calc(var(--rad) * -1);padding:clamp(72px,9vw,140px) clamp(20px,4vw,56px)}
+.closing h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(52px,10.5vw,168px);line-height:.9;letter-spacing:-.055em}
+.cl{display:block}
+.cl1{transform:translateX(calc((1 - var(--ep,1)) * -26vw))}
+.cl2{transform:translateX(calc((1 - var(--ep,1)) * 26vw))}
+.closing .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:clamp(36px,5vw,64px)}
+.js .rv{opacity:0;translate:0 28px;transition:opacity .8s ease,translate .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
+.js .rv.in{opacity:1;translate:0 0}
+.foot-wrap{position:relative;background:var(--plum);color:var(--blush);border-radius:var(--rad) var(--rad) 0 0;margin-top:calc(var(--rad) * -1);padding:calc(clamp(56px,6vw,88px) + var(--rad) * .4) clamp(20px,4vw,56px) 40px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:48px}
+.foot-brand{flex:1 1 280px}
+.foot-brand .logo{font-size:40px}
+.foot-brand p{margin:16px 0 0;font-size:16px;color:rgba(255,243,248,.8)}
+.foot-cols{display:flex;flex-wrap:wrap;gap:48px 96px}
+.foot-cols h4{margin:0;font-size:14px;font-weight:600;color:rgba(255,243,248,.75)}
+.foot-cols div a{display:block;margin-top:12px;font-size:16px}
+.foot-cols h4+a{margin-top:16px}
+.foot-cols a:hover{text-decoration:underline}
+.foot-wrap :focus-visible{outline-color:var(--lime)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,243,248,.16);font-size:14px;color:rgba(255,243,248,.75)}.legal a:hover{text-decoration:underline}
+
+.toast{position:fixed;left:50%;bottom:28px;translate:-50% 20px;max-width:calc(100vw - 40px);padding:12px 20px;border-radius:999px;background:var(--plum);color:var(--blush);box-shadow:0 0 0 1.5px rgba(255,243,248,.35);font-size:15px;opacity:0;pointer-events:none;transition:opacity .25s,translate .35s var(--ease);z-index:10000}
+.toast.on{opacity:1;translate:-50% 0}
+.skip{position:absolute;left:12px;top:-80px;z-index:10000;padding:12px 20px;border-radius:999px;background:#2B0B24;color:#FFF3F8;font-size:15px;font-weight:600;transition:top .2s}.skip:focus{top:12px;outline:3px solid #E8FF59;outline-offset:2px}
+</style>
+</head>
+<body>
+<a class="skip" href="#browse">Skip to content</a>
+
+<div class="prog-top" id="progTop" aria-hidden="true"></div>
+
+
+<header class="hero" id="top" data-page>
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Fade home">fade</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="commands.html" aria-current="page">Commands</a>
+        <a href="index.html#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
+      </div>
+      <a class="btn btn-plum btn-sm" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
+    </div>
+  </nav>
+
+  <div class="hero-main">
+    <h1>
+      <span class="ln" style="--i:0"><span>Every command,</span></span>
+      <span class="ln" style="--i:1"><span>one slash away.</span></span>
+    </h1>
+
+    <div class="picker fi" style="--i:0">
+      <p class="pk-head" id="pkHead"></p>
+      <ul class="pk-list" id="pkList" role="listbox" aria-label="Matching commands"></ul>
+      <form class="pk-bar" id="pkForm" role="search">
+        <span class="pk-plus" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        <span class="pk-slash" aria-hidden="true">/</span>
+        <div class="pk-field">
+          <label class="sr" for="pkIn">Search commands</label>
+          <input id="pkIn" type="search" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-controls="pkList" autocomplete="off" spellcheck="false" placeholder="Search commands">
+          <span class="pk-ghost" id="pkGhost" aria-hidden="true"></span>
+        </div>
+        <span class="pk-kbd" aria-hidden="true">Enter to open</span>
+      </form>
+    </div>
+    <p class="sum fi" style="--i:1" id="sum"></p>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true" data-page><div class="marq-track" id="marq"></div></div>
+
+<main class="browse" id="browse" data-page>
+  <div class="wrap">
+    <div class="b-head">
+      <h2>Browse by module.</h2>
+      <p id="bSub">Pick a tile to open its commands. Subcommands are chips you can click and copy.</p>
+    </div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+</main>
+
+<section class="closing" data-page>
+  <div class="wrap">
+    <h2 id="closeH"><span class="cl cl1">Add Fade to</span><span class="cl cl2">your server.</span></h2>
+    <div class="actions">
+      <a class="btn btn-plum btn-lg" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
+      <a class="btn btn-outline btn-lg" data-magnet style="font-size:20px;font-weight:500" href="https://discord.gg/SmdUGNXjYv">Join the Discord</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot-wrap" data-page>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="Fade home">fade</a>
+        <p>The all-in-one Discord bot.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="commands.html">Commands</a>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="docs.html#antinuke">Security</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <a href="https://discord.gg/SmdUGNXjYv">Discord</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Fade. Not affiliated with Discord Inc.</span><a href="legal.html">Terms &amp; Privacy</a></div>
+  </div>
+</footer>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sh-back" id="shBack"></div>
+  <div class="sh-panel" id="shPanel" role="dialog" aria-modal="true" aria-labelledby="shTitle" tabindex="-1">
+    <div class="sh-top">
+      <span class="sh-ord" id="shOrd"></span>
+      <label class="sr" for="shQ">Search this module</label>
+      <input class="sh-q" id="shQ" type="search" placeholder="Search this module" autocomplete="off" spellcheck="false">
+      <button class="rb" id="shPrev" type="button"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button class="rb" id="shNext" type="button"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <button class="rb solid" id="shClose" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="sh-title">
+      <h2 id="shTitle"></h2>
+      <p id="shCount"></p>
+    </div>
+    <div class="sh-grid" id="shGrid"></div>
+    <p class="sh-empty" id="shEmpty" hidden>No commands in this module match that search.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  var fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  Promise.race([fonts, new Promise(function (r) { setTimeout(r, 1000); })]).then(function () {
+    requestAnimationFrame(function () { html.classList.add('ready'); });
+  });
+
+  /* ---------------------------------------------------------------
+     COMMAND DATA. Edit this list to change the page.
+     [module id, module name, [ [command, description, 'sub:desc|sub2:desc'], ... ]]
+     A command with no third item is a standalone command.
+     --------------------------------------------------------------- */
+  var RAW = [
+    ['general', 'General', [
+      ['help', "Browse Fade's commands"],
+      ['ping', 'Check latency and connection'],
+      ['avatar', "Show a user's avatar in full resolution"],
+      ['userinfo', 'Show information about a user'],
+      ['serverinfo', 'Show server details'],
+      ['serverstats', 'Show an analytics server stats card'],
+      ['membercount', 'Show total, human and bot counts'],
+      ['snipe', 'Show the last deleted or edited message', 'deleted:Show the last deleted message|edited:Show the last edited message|clear:Clear snipe data'],
+      ['profile', 'Manage or view user profiles', 'view:View a user profile|privacy:Toggle your profile privacy'],
+      ['fortnite', "Fortnite shop, news and cosmetic watchlists", 'item:Look up a cosmetic|news:Show Battle Royale news|ping:Set the role pinged on shop updates|set:Set the daily shop channel|view:Show today\'s shop|voting:Toggle vote reactions on the shop message|watch:Get a DM when a cosmetic appears|watchlist:Show your watch list'],
+      ['lastfm', "Last.fm stats and now playing", 'cr:Set custom reactions on your now playing message|crowns:Show artist crowns in this server|globalwhoknows:Show top listeners across all servers|login:Link your account|logout:Unlink your account|mode:Customize the now playing card|nowplaying:Show your current track or another user\'s|profile:Show profile stats|recent:Show recent tracks|refresh:Refresh your cached library|topalbums:Show top albums|topartists:Show top artists|toptracks:Show top tracks|whoknows:Show who in this server knows an artist best'],
+      ['valorant', 'Valorant agent, map and weapon lookups', 'agent:Look up an agent|agents:List all agents|map:Look up a map|maps:List all maps|skin:Look up a skin|weapon:Look up a weapon']
+    ]],
+    ['moderation', 'Moderation', [
+      ['ban', 'Ban a member'],
+      ['unban', 'Unban a user'],
+      ['kick', 'Kick a member'],
+      ['softban', 'Ban and unban a member to wipe their messages'],
+      ['hardban', 'Ban a member and wipe 7 days of messages'],
+      ['unhardban', 'Remove a user from the hardban list and unban them'],
+      ['massban', 'Ban multiple IDs at once'],
+      ['fakeban', 'Pretend to ban a member'],
+      ['mute', 'Time out a member'],
+      ['unmute', 'Remove a timeout'],
+      ['warn', 'Warn a member'],
+      ['warnings', 'View or clear warnings'],
+      ['warnthreshold', 'Manage warning thresholds', 'add:Add or update a threshold|clear:Remove all thresholds|list:List thresholds|remove:Remove a threshold'],
+      ['case', 'Manage moderation cases', 'delete:Delete a case|edit:Edit a case reason|view:View a case'],
+      ['reason', 'Update a case reason'],
+      ['modhistory', "View a user's moderation history"],
+      ['modstats', 'View moderator statistics'],
+      ['purge', 'Purge messages with advanced filters'],
+      ['slowmode', 'Set channel slowmode'],
+      ['lock', 'Lock a channel or the whole server'],
+      ['unlock', 'Unlock a channel or the whole server'],
+      ['strip', 'Remove all roles from a member'],
+      ['stripstaff', 'Remove staff roles from a member'],
+      ['nickname', 'Set or reset member nicknames', 'reset:Reset a nickname|set:Set a nickname'],
+      ['fakeperms', 'Manage fake permissions for roles', 'clear:Remove all fake permissions from a role|grant:Grant a fake permission to a role|list:List fake permissions|revoke:Revoke a fake permission'],
+      ['invoke', 'Customize moderation command messages', 'dm:Set the DM sent to punished users|message:Set the channel response|reset:Reset invoke messages to default|view:View invoke messages'],
+      ['emoji', 'Manage server emojis'],
+      ['steal', 'Steal an emoji or sticker'],
+      ['enlarge', 'Enlarge a custom emoji to full size'],
+      ['drag', 'Move a member into your voice channel'],
+      ['vmove', 'Move members between voice channels'],
+      ['vmute', 'Server-mute a member in voice'],
+      ['vunmute', 'Remove a server mute'],
+      ['vdeafen', 'Server-deafen a member in voice'],
+      ['vundeafen', 'Remove a server deafen'],
+      ['vdisconnect', 'Disconnect a member from voice']
+    ]],
+    ['leveling', 'Leveling', [
+      ['rank', 'Check your level and XP'],
+      ['leaderboard', 'Show the XP leaderboard'],
+      ['addxp', 'Add XP to a user'],
+      ['removexp', 'Remove XP from a user'],
+      ['setxp', 'Set XP to an amount'],
+      ['setlevel', 'Set a level directly'],
+      ['levelconfig', 'Configure leveling', 'channel:Set the level-up channel|cooldown:Set the XP cooldown|message:Set the level-up card message|messageembed:Set the level-up embed message|messageplain:Set a plain text level-up message|toggle:Enable or disable leveling|view:Show current settings|xprate:Set the XP range per message'],
+      ['levelrewards', 'Manage role rewards for levels', 'add:Add a role reward|list:List rewards|remove:Remove a reward']
+    ]],
+    ['antinuke', 'Anti-Nuke', [
+      ['antinuke', 'Configure antinuke protection', 'admin:Grant a user permission to configure antinuke|admins:View users who can configure antinuke|botprotection:Block unauthorized bot additions|logging:Set the antinuke alert channel|module:Enable or disable a protection module|punishment:Set the punishment for a module|threshold:Set how many actions trigger protection|toggle:Enable or disable antinuke|trust:Whitelist a user from detection|unadmin:Revoke config access|untrust:Remove a user from the whitelist|vanity:Protect against unauthorized vanity URL changes|view:Show current settings|whitelist:List trusted users|window:Set the time window for tracking actions']
+    ]],
+    ['antiraid', 'Antiraid', [
+      ['antiraid', 'Configure raid protection', 'accountage:Kick accounts below a minimum age|action:Set what happens to raiders|avatarrequired:Kick members without a profile picture|lock:Lock all channels when a raid is detected|raid:Ban or kick accounts that joined in the last set time|recentban:Ban the last N accounts to join|state:Manually toggle raid state|threshold:Set the joins-per-seconds trigger|toggle:Enable or disable antiraid|trust:Exempt a user from checks|untrust:Remove a user from the exempt list|view:Show current settings|whitelist:List exempt users']
+    ]],
+    ['automod', 'AutoMod', [
+      ['automod', 'Configure automatic moderation', 'blacklist:Manage the word blacklist|ignorechannel:Toggle whether a channel is ignored|ignorerole:Toggle whether a role is ignored|logchannel:Set the log channel|punishment:Set the punishment for a rule|rule:Enable or disable a rule|spammode:Track spam per channel instead of per server|threshold:Set detection thresholds|toggle:Enable or disable AutoMod|view:Show current settings|whitelist:Allow a domain through Anti-Links']
+    ]],
+    ['logging', 'Logging', [
+      ['logs', 'Configure server logging', 'disable:Disable all logging|ignore:Ignore a member or channel|ignorelist:List ignored members and channels|set:Set the log channel for a category|setall:Send all categories to one channel|toggle:Enable or disable a log event|unignore:Remove an ignore entry|view:Show logging configuration']
+    ]],
+    ['welcome', 'Welcome', [
+      ['welcome', 'Configure welcome messages', 'autorole:Toggle a role given to members on join|build:Open the welcome wizard|channel:Set the welcome channel|destruct:Remove a welcome message|dm:Set a DM for new members|message:Set the welcome message|script:Use raw embed or card syntax|style:Set the message style|test:Send a test welcome|toggle:Enable or disable welcome|view:View current settings'],
+      ['goodbye', 'Configure goodbye messages', 'build:Open the goodbye wizard|channel:Set the goodbye channel|destruct:Remove a goodbye message|message:Set the goodbye message|script:Use raw embed or card syntax|style:Set the message style|test:Send a test goodbye|toggle:Enable or disable goodbye|view:View current settings']
+    ]],
+    ['tickets', 'Tickets', [
+      ['ticket', 'Set up ticket panels', 'add:Add a form field|addtype:Add a ticket type button|create:Create a panel|delete:Delete a panel|list:List panels or form fields|post:Post or repost a panel|remove:Remove a form field']
+    ]],
+    ['tempvoice', 'TempVoice', [
+      ['tempvoice', 'Manage TempVoice settings and control panel', 'defaultlimit:Set the default user limit|defaultname:Set the default channel name|interface:Post the control panel|setup:Set up TempVoice|toggle:Enable or disable TempVoice|view:View settings'],
+      ['vc', 'Control your temporary voice channel', 'claim:Claim an ownerless channel|hide:Hide the channel|info:Show channel info|kick:Remove someone from the channel|limit:Set the user limit|lock:Lock the channel|name:Rename the channel|permit:Allow a user to join|reject:Deny a user from joining|transfer:Transfer ownership|unhide:Unhide the channel|unlock:Unlock the channel']
+    ]],
+    ['giveaways', 'Giveaways', [
+      ['giveaway', 'Run and manage giveaways', 'delete:Cancel and delete a giveaway|description:Set a description|duration:Change the end time|end:End early and pick winners|host:Change the host|image:Set an image URL|list:List active giveaways|minlevel:Set a minimum level|prize:Change the prize|requiredroles:Set required roles|reroll:Reroll winners|start:Start a giveaway|winners:Change the winner count']
+    ]],
+    ['starboard', 'Starboard', [
+      ['starboard', 'Configure the starboard and clownboard', 'attachments:Toggle attachments|color:Set the accent color|emoji:Set the star or clownboard emoji|ignorensfw:Toggle ignoring NSFW channels|jumpurl:Toggle jump URLs|selfstar:Allow self-starring|setup:Set the starboard or clownboard channel|threshold:Set star or clown thresholds|timestamp:Toggle timestamps|toggle:Toggle the starboard or clownboard|view:View settings']
+    ]],
+    ['roles', 'Roles', [
+      ['autorole', 'Manage roles given automatically on join', 'add:Add an autorole|clear:Clear all autoroles|list:List autoroles|remove:Remove an autorole'],
+      ['boosterrole', 'Manage booster roles', 'channel:Set the boost announcement channel|cleanup:Remove roles from non-boosters|color:Change your booster role color|create:Create your booster role|icon:Set the booster role icon|list:List booster roles|message:Set the boost message|messageembed:Set the boost embed message|messageplain:Set a plain text boost message|remove:Remove booster role settings|rename:Rename your booster role|set:Set the base role or awarded role|view:View the awarded role'],
+      ['reactionrole', 'Manage reaction roles, buttons and dropdowns', 'add:Add a button, dropdown option or reaction role|clear:Remove buttons or the select menu|list:List panels or reaction roles|remove:Remove a dropdown role or reaction role|removebutton:Remove a role button'],
+      ['role', 'Assign or remove a role from a user'],
+      ['roleicon', 'Set or remove a role icon'],
+      ['servertag', 'Manage the server tag award system', 'channel:Set the announcement channel|config:Configure the system|disable:Disable server tags|image:Set the announcement image|message:Set the announcement message|role:Set the awarded role'],
+      ['vanity', 'Manage vanity award roles', 'add:Add a vanity role|channel:Set the announcement channel|config:Configure vanity roles|disable:Disable the system|list:List vanity roles|message:Set the announcement message|remove:Remove a vanity role|set:Set the vanity keyword'],
+      ['bind', 'Bind a command to a required role'],
+      ['rolealias', 'Manage role name aliases']
+    ]],
+    ['marriage', 'Marriage', [
+      ['propose', 'Propose marriage to another user'],
+      ['divorce', 'Divorce your current partner'],
+      ['adopt', 'Adopt another user as your child'],
+      ['disown', 'Disown one of your children'],
+      ['runaway', 'Run away from your parent'],
+      ['tree', 'View your family tree'],
+      ['ship', 'Check compatibility between two users']
+    ]],
+    ['reputation', 'Reputation', [
+      ['rep', 'View a reputation profile'],
+      ['reputation', 'Award reputation to a user'],
+      ['repadmin', 'Manually adjust reputation (admin only)']
+    ]],
+    ['scrapbook', 'Scrapbook', [
+      ['scrapbook', 'View the weekly server scrapbook']
+    ]],
+    ['utility', 'Utility', [
+      ['afk', 'Set your AFK status and message'],
+      ['alias', 'Manage command aliases', 'add:Create an alias|list:List aliases|remove:Delete an alias'],
+      ['askai', 'Ask the AI a question'],
+      ['imagine', 'Generate an AI image'],
+      ['birthday', 'Manage birthdays and announcements', 'announcements:Toggle announcements|channel:Set the announcement channel|list:List birthdays|message:Set the custom message|remove:Remove your birthday|role:Set the birthday role|set:Set your birthday|style:Set the message style|system:Toggle the whole system|view:View a birthday or current config'],
+      ['bumpreminder', 'Set up bump reminders', 'message:Set the reminder message|setup:Set up bump reminders|toggle:Toggle reminders|view:View settings'],
+      ['builder', 'Interactive UI to build and post custom embeds'],
+      ['confess', 'Submit an anonymous confession'],
+      ['confession', 'Manage anonymous confessions', 'ban:Ban a user from confessing|disable:Disable confessions|setup:Set the confession channel'],
+      ['counter', 'Manage counter channels', 'create:Create a counter channel|delete:Delete a counter|list:List counters|toggle:Toggle a counter|update:Force an update'],
+      ['memory', "Teach Fade your server's facts", 'add:Teach Fade a server fact|clear:Wipe all server memories|delete:Forget a memory by ID|list:List memories|scrape:Learn from a channel|status:Show the memory count'],
+      ['poll', 'Create and manage polls', 'create:Create a poll|end:End a poll early'],
+      ['reactiontrigger', 'Manage reaction triggers', 'add:Add a trigger|delete:Delete a trigger|list:List triggers|toggle:Toggle a trigger'],
+      ['remind', 'Manage your reminders', 'cancel:Cancel a reminder|list:List your reminders|set:Create a reminder'],
+      ['responder', 'Manage auto responders', 'add:Add an auto responder|delete:Delete a responder|edit:Edit a responder|list:List responders|toggle:Toggle a responder|view:View a responder'],
+      ['social', 'Manage social media notifications', 'add:Add a social notification|list:List notifications|message:Set a notification message|remove:Remove a notification'],
+      ['spotify', 'Control your Spotify playback from Discord', 'now:Show your currently playing track|play:Resume playback|pause:Pause playback|skip:Skip to the next track|previous:Go to the previous track|volume:Set playback volume|shuffle:Toggle shuffle|repeat:Set repeat mode|link:Link your Spotify account|unlink:Unlink your Spotify account'],
+      ['sticky', 'Manage sticky messages', 'list:List sticky messages|remove:Remove a sticky message|set:Set or update a sticky message|toggle:Toggle a sticky message|view:View a channel\'s sticky message'],
+      ['timer', 'Manage auto messages', 'add:Create an auto message|list:List auto messages|remove:Remove an auto message|view:View an auto message'],
+      ['webhook', 'Relay a message through a webhook'],
+      ['runcode', 'Run code in 60+ programming languages directly in Discord']
+    ]],
+    ['fun', 'Fun', [
+      ['blackjack', 'Play blackjack'],
+      ['trivia', 'Answer a trivia question'],
+      ['wordle', 'Play a game of Wordle'],
+      ['tictactoe', 'Play tic-tac-toe with another user'],
+      ['quote', 'Turn a replied message into a quote card'],
+      ['action', 'Roleplay actions', 'hug:Hug a user|kiss:Kiss a user|pat:Pat a user|slap:Slap a user|bite:Bite a user|cuddle:Cuddle with a user|bully:Bully a user|lick:Lick a user|yeet:Yeet a user|highfive:High-five a user|handhold:Hold hands with a user|nom:Nom on a user|kill:Kill a user|poke:Poke a user|bonk:Bonk a user|stare:Stare at a user|blush:Blush at a user|cry:Cry|dance:Dance|smile:Smile|wave:Wave at a user|wink:Wink at a user|smug:Act smug']
+    ]],
+    ['economy', 'Economy', [
+      ['balance', 'View your wallet and bank'],
+      ['daily', 'Claim your daily coins'],
+      ['work', 'Earn coins by working'],
+      ['deposit', 'Deposit coins into the bank'],
+      ['withdraw', 'Withdraw coins from the bank'],
+      ['transfer', 'Send coins to another user'],
+      ['shop', 'Browse the server shop'],
+      ['buy', 'Buy a shop item'],
+      ['inventory', 'View your purchased items'],
+      ['coinflip', 'Bet on a coin flip'],
+      ['gamble', 'Take a 50/50 gamble'],
+      ['slots', 'Spin the slot machine'],
+      ['rob', 'Try to rob a user\'s wallet'],
+      ['economy', 'Economy administration and leaderboard', 'leaderboard:Show the richest users|admin:Economy admin tools']
+    ]],
+    ['music', 'Music', [
+      ['play', 'Play a song or playlist from a URL or search'],
+      ['pause', 'Pause or resume playback'],
+      ['skip', 'Skip the current track'],
+      ['stop', 'Stop playback and clear the queue'],
+      ['queue', 'View the current queue'],
+      ['nowplaying', 'Show the current track with progress'],
+      ['lyrics', 'Show lyrics for the current or a searched track'],
+      ['seek', 'Seek to a position in the track'],
+      ['volume', 'Set the playback volume (1 to 200)'],
+      ['loop', 'Set the loop mode: off, track or queue'],
+      ['shuffle', 'Shuffle the queue'],
+      ['move', 'Move a queued track to a new position'],
+      ['remove', 'Remove a track by queue position'],
+      ['filter', 'Apply audio filters like bass boost or nightcore'],
+      ['autoplay', 'Toggle autoplay of related tracks'],
+      ['twentyfourseven', 'Toggle 24/7 mode to keep the bot in voice'],
+      ['join', 'Summon the bot to your voice channel'],
+      ['djrole', 'View or set the DJ role']
+    ]],
+    ['server', 'Server', [
+      ['serverstats', 'Show a detailed analytics dashboard'],
+      ['channelstats', 'Show channel activity stats'],
+      ['messages', 'Show a user\'s message count'],
+      ['msglb', 'Show the message leaderboard'],
+      ['voicestats', 'Show a user\'s voice activity stats'],
+      ['vclb', 'Show the voice time leaderboard'],
+      ['invites', 'Show invite stats for a user'],
+      ['invited', 'List the users someone invited'],
+      ['inviter', 'Find who invited a user'],
+      ['invitelb', 'Show the invite leaderboard'],
+      ['managestats', 'Adjust and reset tracked stats', 'addmessages:Add to a message count|removemessages:Remove from a message count|addvctime:Add voice time|removevctime:Remove voice time|blacklistcategory:Exclude a category from tracking|blacklistchannel:Exclude a channel from tracking|resetmessages:Reset message stats|resetvoice:Reset voice stats']
+    ]],
+    ['security', 'Security', [
+      ['trapwire', 'Set a honeypot channel that instantly bans anyone who sends a message in it', 'set:Set the trapwire channel|disable:Disable the trapwire|status:View trapwire status|delete:Delete the trapwire config']
+    ]],
+    ['config', 'Config', [
+      ['prefix', 'Set a custom command prefix'],
+      ['translator', 'Toggle the flag emoji translator'],
+      ['command', 'Control which commands can be used where', 'disable:Disable a command or category|enable:Re-enable a command or category|restrictchannel:Restrict a command to a channel|restrictrole:Restrict a command to a role|unrestrict:Remove a restriction|view:Show restrictions and disabled commands'],
+      ['botprofile', "Customize the bot's appearance in this server"]
+    ]]
+  ];
+
+  function parseSubs(s) {
+    return s.split('|').map(function (x) {
+      var i = x.indexOf(':');
+      return i < 0 ? { n: x.trim(), d: '' } : { n: x.slice(0, i).trim(), d: x.slice(i + 1).trim() };
+    });
+  }
+  var MODS = RAW.map(function (m) {
+    return { id: m[0], name: m[1], cmds: m[2].map(function (c) { return { n: c[0], d: c[1] || '', subs: c[2] ? parseSubs(c[2]) : null }; }) };
+  });
+  function modCount(m) { return m.cmds.reduce(function (a, c) { return a + (c.subs ? c.subs.length : 1); }, 0); }
+  var TOTAL = MODS.reduce(function (a, m) { return a + modCount(m); }, 0);
+  var byId = {};
+  MODS.forEach(function (m, i) { m.i = i; byId[m.id] = m; });
+
+  /* tile sizes by command count, colors by order */
+  var ranked = MODS.slice().sort(function (a, b) { return modCount(b) - modCount(a); });
+  ranked.forEach(function (m, i) { m.span = i < 2 ? 'big' : (i < 6 ? 'wide' : 'sm'); if (i < 2) m.color = ['plum', 'pink'][i]; });
+  var CYC = ['lilac', 'rose', 'lime', 'blush'], ci = 0;
+  MODS.forEach(function (m) { if (!m.color) m.color = CYC[ci++ % CYC.length]; });
+
+  $('sum').textContent = TOTAL + ' commands in ' + MODS.length + ' modules. Type to search, or pick a module below.';
+
+  /* flat index for the picker */
+  var FLAT = [];
+  MODS.forEach(function (m) {
+    m.cmds.forEach(function (c) {
+      FLAT.push({ m: m, c: c, sub: null, name: c.n, desc: c.d });
+      if (c.subs) c.subs.forEach(function (s) { FLAT.push({ m: m, c: c, sub: s, name: c.n + ' ' + s.n, desc: s.d || c.d }); });
+    });
+  });
+
+  function tokens(q) { return q.toLowerCase().split(/\s+/).filter(Boolean); }
+  function has(hay, tk) {
+    hay = hay.toLowerCase();
+    for (var i = 0; i < tk.length; i++) if (hay.indexOf(tk[i]) < 0) return false;
+    return true;
+  }
+  function hl(parent, text, tk) {
+    if (!tk || !tk.length) { parent.textContent = text; return; }
+    var low = text.toLowerCase(), mask = [], i, k, idx, from;
+    for (i = 0; i < tk.length; i++) {
+      from = 0;
+      while ((idx = low.indexOf(tk[i], from)) > -1) {
+        for (k = idx; k < idx + tk[i].length; k++) mask[k] = 1;
+        from = idx + tk[i].length;
+      }
+    }
+    var buf = '', on = false;
+    function flush() {
+      if (!buf) return;
+      if (on) { var mk = document.createElement('mark'); mk.textContent = buf; parent.appendChild(mk); }
+      else parent.appendChild(document.createTextNode(buf));
+      buf = '';
+    }
+    for (i = 0; i < text.length; i++) {
+      var b = !!mask[i];
+      if (b !== on) { flush(); on = b; }
+      buf += text.charAt(i);
+    }
+    flush();
+  }
+
+  /* copy + toast */
+  var toastEl = $('toast'), toastT = 0;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('on'); }, 1800);
+  }
+  function copy(text) {
+    function done() { toast('Copied ' + text); }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) { toast('Could not copy'); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  var COPY_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg>';
+  var ARROW_SVG = '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  /* ============ marquee ============ */
+  (function () {
+    var names = ['ban', 'kick', 'mute', 'warn', 'purge', 'lock', 'antinuke', 'antiraid', 'automod', 'play', 'queue', 'lyrics', 'rank', 'daily', 'work', 'slots', 'giveaway', 'ticket', 'welcome', 'starboard', 'remind', 'poll', 'askai', 'serverstats'];
+    var half = names.map(function (n, i) { return '<span' + (i % 2 ? ' class="o"' : '') + '>/' + n + '</span>'; }).join('');
+    $('marq').innerHTML = half + half;
+  })();
+
+  /* ============ module tiles ============ */
+  function previewOf(m) {
+    var out = [];
+    m.cmds.forEach(function (c) { out.push('/' + c.n); });
+    if (m.cmds.length < 6) m.cmds.forEach(function (c) { if (c.subs) c.subs.forEach(function (s) { out.push('/' + c.n + ' ' + s.n); }); });
+    return out.slice(0, 14);
+  }
+  var tilesEl = $('tiles'), tileEls = [];
+  MODS.forEach(function (m) {
+    var b = el('button', 'tile ' + m.span + ' c-' + m.color); b.type = 'button';
+    b.dataset.mod = m.id; b.style.setProperty('--i', m.i % 4);
+    b.setAttribute('aria-label', m.name + ', ' + modCount(m) + ' commands');
+    var top = el('span', 't-top');
+    top.appendChild(el('span', 't-ord', pad(m.i + 1)));
+    var go = el('span', 't-go'); go.innerHTML = ARROW_SVG; top.appendChild(go);
+    var main = el('span', 't-main');
+    main.appendChild(el('span', 't-name', m.name));
+    main.appendChild(el('span', 't-cnt', modCount(m) + ' commands'));
+    var prev = el('span', 't-prev');
+    previewOf(m).forEach(function (t) { prev.appendChild(el('span', '', t)); });
+    main.appendChild(prev);
+    b.appendChild(top); b.appendChild(main);
+    b.addEventListener('click', function () { openSheet(m.id); });
+    tilesEl.appendChild(b); tileEls.push(b);
+  });
+
+  /* ============ slash picker ============ */
+  var pkIn = $('pkIn'), pkList = $('pkList'), pkHead = $('pkHead'), pkGhost = $('pkGhost');
+  var pq = '', pkActive = 0, pkItems = [];
+  var SUGG = ['help', 'ban', 'antinuke', 'play', 'rank'];
+
+  function pkSearch(q) {
+    var tk = tokens(q);
+    if (!tk.length) {
+      return { total: 0, items: SUGG.map(function (n) { return FLAT.filter(function (f) { return !f.sub && f.name === n; })[0]; }).filter(Boolean) };
+    }
+    var whole = q.toLowerCase().trim(), scored = [];
+    FLAT.forEach(function (f, i) {
+      var name = f.name.toLowerCase(), hay = name + ' ' + f.desc.toLowerCase() + ' ' + f.m.name.toLowerCase();
+      for (var k = 0; k < tk.length; k++) if (hay.indexOf(tk[k]) < 0) return;
+      var s = 0;
+      if (name === whole) s += 100;
+      if (name.indexOf(tk[0]) === 0) s += 50; else if (name.indexOf(tk[0]) > -1) s += 25;
+      if (f.sub) s -= 3;
+      s -= name.length * 0.1;
+      scored.push({ f: f, s: s, i: i });
+    });
+    scored.sort(function (a, b) { return b.s - a.s || a.i - b.i; });
+    return { total: scored.length, items: scored.slice(0, 5).map(function (x) { return x.f; }) };
+  }
+
+  function renderPicker() {
+    var tk = tokens(pq), res = pkSearch(pq);
+    pkItems = res.items;
+    if (pkActive >= pkItems.length) pkActive = 0;
+    pkHead.textContent = tk.length ? res.total + (res.total === 1 ? ' result for “' : ' results for “') + pq + '”' : 'Popular commands';
+    pkList.textContent = '';
+    if (!pkItems.length) {
+      var none = el('li', 'pk-none', 'Nothing called “' + pq + '” yet. Try “ban” or “play”.');
+      none.setAttribute('role', 'presentation');
+      pkList.appendChild(none);
+      pkIn.removeAttribute('aria-activedescendant');
+      return;
+    }
+    pkItems.forEach(function (f, i) {
+      var li = el('li', 'pk-row'); li.id = 'pk-' + i; li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', i === pkActive ? 'true' : 'false');
+      var nm = el('span', 'pk-name');
+      var b = el('span'); hl(b, '/' + f.c.n, tk); nm.appendChild(b);
+      if (f.sub) { var s = el('i'); hl(s, ' ' + f.sub.n, tk); nm.appendChild(s); }
+      var ds = el('span', 'pk-desc'); hl(ds, f.desc, tk);
+      li.appendChild(nm); li.appendChild(ds); li.appendChild(el('span', 'pk-mod', f.m.name));
+      li.addEventListener('mousedown', function (e) { e.preventDefault(); });
+      li.addEventListener('mouseenter', function () { setActive(i); });
+      li.addEventListener('click', function () { pickItem(i); });
+      pkList.appendChild(li);
+    });
+    pkIn.setAttribute('aria-activedescendant', 'pk-' + pkActive);
+  }
+  function setActive(i) {
+    pkActive = i;
+    [].forEach.call(pkList.children, function (li, k) { li.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+    pkIn.setAttribute('aria-activedescendant', 'pk-' + i);
+  }
+  function pickItem(i) {
+    var f = pkItems[i]; if (!f) return;
+    stopDemo();
+    openSheet(f.m.id, { cmd: f.c.n, sub: f.sub ? f.sub.n : null });
+  }
+
+  /* typing demo that hands over on first touch */
+  var demo = { on: false, t: 0, words: ['ban', 'antinuke', 'play', 'rank', 'giveaway', 'ticket', 'welcome', 'balance'] };
+  function setGhost(v) { pq = v; pkGhost.textContent = v; pkActive = 0; renderPicker(); }
+  function runDemo() {
+    demo.on = true; pkIn.placeholder = '';
+    var i = 0, k = 0, dir = 1;
+    (function step() {
+      if (!demo.on) return;
+      var w = demo.words[i];
+      if (dir > 0) {
+        k++; setGhost(w.slice(0, k));
+        if (k === w.length) { dir = -1; demo.t = setTimeout(step, 2000); return; }
+        demo.t = setTimeout(step, 90 + Math.random() * 70);
+      } else {
+        k--; setGhost(w.slice(0, k));
+        if (k === 0) { dir = 1; i = (i + 1) % demo.words.length; demo.t = setTimeout(step, 450); return; }
+        demo.t = setTimeout(step, 32);
+      }
+    })();
+  }
+  function stopDemo() {
+    if (!demo.on) return;
+    demo.on = false; clearTimeout(demo.t);
+    pkGhost.textContent = ''; pkGhost.hidden = true;
+    pkIn.placeholder = 'Search commands';
+    pq = pkIn.value.replace(/^\/+/, ''); pkActive = 0; renderPicker();
+  }
+  ['focus', 'pointerdown', 'keydown'].forEach(function (ev) { pkIn.addEventListener(ev, stopDemo); });
+
+  pkIn.addEventListener('input', function () { pq = pkIn.value.replace(/^\/+/, ''); pkActive = 0; renderPicker(); });
+  pkIn.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (pkItems.length) setActive((pkActive + 1) % pkItems.length); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); if (pkItems.length) setActive((pkActive - 1 + pkItems.length) % pkItems.length); }
+    else if (e.key === 'Enter') { e.preventDefault(); pickItem(pkActive); }
+    else if (e.key === 'Escape' && pkIn.value) { pkIn.value = ''; pq = ''; pkActive = 0; renderPicker(); }
+  });
+  $('pkForm').addEventListener('submit', function (e) { e.preventDefault(); });
+  renderPicker();
+
+  /* ============ command sheet ============ */
+  var sheet = $('sheet'), panel = $('shPanel'), shGrid = $('shGrid'), shQ = $('shQ'), shEmpty = $('shEmpty');
+  var sh = { open: false, mod: null, opener: null, t: 0 };
+  var pageEls = [].slice.call(document.querySelectorAll('[data-page]'));
+  function setInert(on) { pageEls.forEach(function (e) { if (on) e.setAttribute('inert', ''); else e.removeAttribute('inert'); }); }
+
+  function buildCard(c, tk, idx) {
+    var card = el('article', 'card'); card.dataset.cmd = c.n; card.style.setProperty('--d', Math.min(idx, 14));
+    if (c.subs) card.classList.add('hs');
+    if (c.subs && c.subs.length >= 10) card.classList.add('wide');
+    var cur = null;
+    var top = el('div', 'ctop'), cn = el('code', 'cn'), cp = el('button', 'cp'); cp.type = 'button'; cp.innerHTML = COPY_SVG;
+    top.appendChild(cn); top.appendChild(cp);
+    var cd = el('p', 'cd');
+    card.appendChild(top); card.appendChild(cd);
+    var chipBtns = [];
+    function full() { return c.n + (cur ? ' ' + cur.n : ''); }
+    function paint() {
+      cn.textContent = '';
+      cn.appendChild(el('span', 'sl', '/'));
+      var nm = el('span'); hl(nm, c.n, cur ? [] : tk); cn.appendChild(nm);
+      if (cur) cn.appendChild(el('span', 'ssub', ' ' + cur.n));
+      cd.textContent = '';
+      hl(cd, cur ? (cur.d || c.d) : c.d, cur ? [] : tk);
+      cp.setAttribute('aria-label', 'Copy /' + full());
+      chipBtns.forEach(function (b) { b.setAttribute('aria-pressed', b._s === cur ? 'true' : 'false'); });
+    }
+    cp.addEventListener('click', function () { copy('/' + full()); });
+    if (c.subs) {
+      var chips = el('div', 'chips');
+      c.subs.forEach(function (s) {
+        var b = el('button', 'sc'); b.type = 'button'; b._s = s; hl(b, s.n, tk);
+        b.setAttribute('aria-label', '/' + c.n + ' ' + s.n);
+        b.addEventListener('click', function () { cur = cur === s ? null : s; paint(); });
+        chips.appendChild(b); chipBtns.push(b);
+      });
+      card.appendChild(chips);
+    }
+    card.pick = function (name) {
+      if (!c.subs) return;
+      c.subs.forEach(function (s) { if (s.n === name) cur = s; });
+      paint();
+    };
+    paint();
+    return card;
+  }
+
+  function buildCards(m, q, still) {
+    var tk = tokens(q), shown = 0, n = 0;
+    shGrid.textContent = ''; shGrid.classList.toggle('still', !!still);
+    m.cmds.forEach(function (c) {
+      var hay = c.n + ' ' + c.d + ' ' + (c.subs ? c.subs.map(function (s) { return s.n + ' ' + s.d; }).join(' ') : '');
+      if (tk.length && !has(hay, tk)) return;
+      shGrid.appendChild(buildCard(c, tk, shown++));
+      n += c.subs ? c.subs.length : 1;
+    });
+    $('shCount').textContent = tk.length ? n + ' of ' + modCount(m) + ' commands' : modCount(m) + ' commands';
+    shEmpty.hidden = shown > 0;
+  }
+
+  function setHash(u) { try { if (history.replaceState) history.replaceState(null, '', u); } catch (e) {} }
+  function openSheet(id, opts) {
+    var m = byId[id]; if (!m) return;
+    opts = opts || {};
+    var was = sh.open;
+    clearTimeout(sh.t);
+    if (!was) sh.opener = document.activeElement;
+    sh.mod = m; sh.open = true;
+    panel.className = 'sh-panel c-' + m.color;
+    $('shTitle').textContent = m.name;
+    $('shOrd').textContent = pad(m.i + 1) + ' / ' + pad(MODS.length);
+    var n = MODS.length, pv = MODS[(m.i - 1 + n) % n], nx = MODS[(m.i + 1) % n];
+    $('shPrev').setAttribute('aria-label', 'Previous module: ' + pv.name);
+    $('shNext').setAttribute('aria-label', 'Next module: ' + nx.name);
+    shQ.value = '';
+    buildCards(m, '', false);
+    sheet.hidden = false;
+    setInert(true); html.classList.add('lock');
+    var card = null;
+    if (opts.cmd) {
+      card = shGrid.querySelector('[data-cmd="' + opts.cmd + '"]');
+      if (card && opts.sub) card.pick(opts.sub);
+    }
+    panel.scrollTop = card ? Math.max(0, card.offsetTop - 150) : 0;
+    if (!was) { void sheet.offsetWidth; sheet.classList.add('open'); }
+    if (card) { setTimeout(function () { card.classList.add('hit'); setTimeout(function () { card.classList.remove('hit'); }, 3000); }, reduce ? 0 : 700); }
+    setHash('#' + id);
+    if (!was) $('shClose').focus({ preventScroll: true });
+  }
+  function closeSheet() {
+    if (!sh.open) return;
+    sh.open = false; sheet.classList.remove('open'); html.classList.remove('lock'); setInert(false);
+    setHash(location.pathname + location.search);
+    clearTimeout(sh.t);
+    sh.t = setTimeout(function () { if (!sh.open) sheet.hidden = true; }, reduce ? 0 : 800);
+    var o = sh.opener; sh.opener = null;
+    if (o && o.focus && document.contains(o)) o.focus({ preventScroll: true });
+  }
+  function step(d) { var n = MODS.length; openSheet(MODS[(sh.mod.i + d + n) % n].id); }
+
+  $('shClose').addEventListener('click', closeSheet);
+  $('shBack').addEventListener('click', closeSheet);
+  $('shPrev').addEventListener('click', function () { step(-1); });
+  $('shNext').addEventListener('click', function () { step(1); });
+  var shT = 0;
+  shQ.addEventListener('input', function () {
+    clearTimeout(shT);
+    shT = setTimeout(function () { buildCards(sh.mod, shQ.value.trim(), true); }, 60);
+  });
+  panel.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var f = [].slice.call(panel.querySelectorAll('button,input')).filter(function (x) { return !x.disabled && x.offsetParent !== null; });
+    if (!f.length) return;
+    var a = f[0], z = f[f.length - 1], cur = document.activeElement;
+    if (!panel.contains(cur)) { e.preventDefault(); a.focus(); }
+    else if (e.shiftKey && cur === a) { e.preventDefault(); z.focus(); }
+    else if (!e.shiftKey && cur === z) { e.preventDefault(); a.focus(); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (sh.open) {
+      if (e.key === 'Escape') {
+        if (document.activeElement === shQ && shQ.value) { shQ.value = ''; buildCards(sh.mod, '', true); }
+        else closeSheet();
+      } else if (e.key === '/' && document.activeElement !== shQ) { e.preventDefault(); shQ.focus(); }
+      return;
+    }
+    var t = document.activeElement && document.activeElement.tagName;
+    if (e.key === '/' && !e.metaKey && !e.ctrlKey && !e.altKey && t !== 'INPUT' && t !== 'TEXTAREA') {
+      e.preventDefault(); pkIn.focus({ preventScroll: false }); pkIn.select();
+    }
+  });
+  function fromHash() {
+    var h = location.hash.replace('#', '');
+    if (byId[h]) { stopDemo(); openSheet(h); }
+    else if (sh.open) closeSheet();
+  }
+  window.addEventListener('hashchange', fromHash);
+
+  if (!reduce && !byId[location.hash.replace('#', '')]) runDemo();
+  else { pkGhost.hidden = true; }
+  fromHash();
+
+  if (reduce) return;
+
+  /* ============ motion ============ */
+  var bar = $('progTop'), closeH = $('closeH');
+  var rvs = [].slice.call(document.querySelectorAll('.closing .actions > *'));
+  rvs.forEach(function (e, i) { e.classList.add('rv'); e.style.setProperty('--i', i); });
+  var targets = rvs.concat(tileEls);
+  if (typeof IntersectionObserver !== 'undefined') {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+    }, { threshold: 0.12 });
+    targets.forEach(function (e) { io.observe(e); });
+  } else { targets.forEach(function (e) { e.classList.add('in'); }); }
+
+  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  [].slice.call(document.querySelectorAll('[data-magnet]')).forEach(function (e) {
+    if (!fine) return;
+    e.addEventListener('pointermove', function (ev) {
+      var r = e.getBoundingClientRect();
+      e.style.transform = 'translate(' + ((ev.clientX - (r.left + r.width / 2)) * 0.3).toFixed(1) + 'px,' + ((ev.clientY - (r.top + r.height / 2)) * 0.4).toFixed(1) + 'px)';
+    });
+    e.addEventListener('pointerleave', function () { e.style.transform = ''; });
+  });
+
+  var blob = $('blob'), tx = -100, ty = -100, bx = -100, by = -100;
+  if (fine && blob) {
+    window.addEventListener('pointermove', function (e) {
+      tx = e.clientX; ty = e.clientY; blob.classList.add('on');
+      blob.classList.toggle('big', !!e.target.closest('a, button, input, .pk-row'));
+    });
+    document.addEventListener('pointerleave', function () { blob.classList.remove('on'); });
+  }
+
+  var lastY = -1;
+  function tick() {
+    requestAnimationFrame(tick);
+    var y = window.pageYOffset;
+    if (fine && blob) {
+      bx += (tx - bx) * 0.2; by += (ty - by) * 0.2;
+      blob.style.transform = 'translate3d(' + bx.toFixed(1) + 'px,' + by.toFixed(1) + 'px,0)';
+    }
+    if (y === lastY) return;
+    lastY = y;
+    var vh = window.innerHeight, docH = document.documentElement.scrollHeight;
+    bar.style.setProperty('--sp', clamp(y / Math.max(1, docH - vh), 0, 1).toFixed(4));
+    var r = closeH.getBoundingClientRect();
+    var e = clamp((vh * 0.97 - r.top) / (vh * 0.5), 0, 1);
+    closeH.style.setProperty('--ep', (e * e * (3 - 2 * e)).toFixed(3));
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

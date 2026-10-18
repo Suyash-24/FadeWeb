@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Fade</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="This page faded away. Here is where to go next.">
+<meta name="theme-color" content="#FF4F9A">
+<link rel="icon" href="logo.png">
+<meta property="og:site_name" content="Fade">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Page not found | Fade">
+<meta property="og:description" content="This page faded away. Here is where to go next.">
+<meta name="twitter:card" content="summary">
+<script>
+(function () {
+  var h = document.documentElement;
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('js');
+  setTimeout(function () { h.classList.add('ready'); }, 2500);
+  /* a 404 page is served from any depth (/a/b/c), so resolve links from the site root */
+  if (/^https?:$/.test(location.protocol)) {
+    var b = document.createElement('base'); b.href = '/';
+    document.head.insertBefore(b, document.head.firstChild);
+  }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2B0B24; --pink:#FF4F9A; --lime:#E8FF59; --lilac:#C9B8FF; --blush:#FFF3F8; --rose:#FFC2D6; --violet:#9C86FF;
+  --display:'Bricolage Grotesque','Geist',system-ui,sans-serif;
+  --mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --rad:clamp(28px,4vw,56px);
+  --ease:cubic-bezier(.2,.9,.2,1);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Geist',system-ui,sans-serif;background:var(--plum);color:var(--plum);-webkit-font-smoothing:antialiased;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+
+
+.wrap{max-width:1328px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:999px;border:1.5px solid transparent;font-size:17px;font-weight:600;cursor:pointer;transition:background .2s,color .2s,transform .35s var(--ease)}
+.btn-sm{height:46px;padding:0 22px;font-size:15px}
+.btn-plum{background:var(--plum);color:var(--blush)}
+.btn-plum:hover{background:var(--lime);color:var(--plum)}
+
+.hero{position:relative;z-index:2;min-height:min(100svh,980px);display:flex;flex-direction:column;background:var(--pink);border-radius:0 0 var(--rad) var(--rad);overflow:hidden}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4vw,56px)}
+.logo{font-family:var(--display);font-weight:800;font-size:32px;line-height:1;letter-spacing:-.05em}
+.nav-right{display:flex;align-items:center;gap:36px}
+.nav-links{display:flex;gap:32px;font-size:16px;font-weight:500}
+.nav-links a:hover{opacity:.65}
+@media (max-width:820px){.nav-links{display:none}}
+.js .nav{opacity:0;translate:0 -18px}
+.ready .nav{opacity:1;translate:0 0;transition:opacity .8s ease .1s,translate .9s var(--ease) .1s}
+
+.hero-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(8px,3vw,40px) clamp(20px,4vw,56px) clamp(56px,7vw,96px)}
+.big{display:flex;align-items:center;justify-content:center;gap:.02em;margin:0;font-family:var(--display);font-weight:800;font-size:clamp(132px,30vw,440px);line-height:.8;letter-spacing:-.06em}
+.big .d{display:block;padding-bottom:.1em}
+.big canvas{display:block;width:.8em;height:.8em;margin:0 .02em;touch-action:pan-y}
+.js .big{opacity:0;scale:.92;transition:none}
+.ready .big{opacity:1;scale:1;transition:opacity 1s ease .2s,scale 1.2s var(--ease) .2s}
+.msg{margin:clamp(8px,2vw,24px) 0 0;text-align:center;font-family:var(--display);font-weight:800;font-size:clamp(30px,4.6vw,64px);line-height:1;letter-spacing:-.04em}
+.lead{margin:16px auto 0;max-width:30em;text-align:center;font-size:20px;line-height:1.5}
+.js .fi{opacity:0;translate:0 22px}
+.ready .fi{opacity:1;translate:0 0;transition:opacity .8s ease,translate .9s var(--ease);transition-delay:calc(.6s + var(--i) * .12s)}
+.go{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:clamp(28px,4vw,44px) 0 0;padding:0;list-style:none}
+.go a{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;border:1.5px solid var(--plum);background:var(--c);font-size:17px;font-weight:600;transition:transform .35s var(--ease),background .2s,color .2s}
+.go a:hover{background:var(--plum);color:var(--blush)}
+.go a span{font-family:var(--mono);font-size:13px;font-weight:500;opacity:.85}
+
+.foot-wrap{position:relative;z-index:1;background:var(--plum);color:var(--blush);border-radius:var(--rad) var(--rad) 0 0;margin-top:calc(var(--rad) * -1);padding:calc(clamp(56px,6vw,88px) + var(--rad)) clamp(20px,4vw,56px) 40px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:48px}
+.foot-brand{flex:1 1 280px}
+.foot-brand .logo{font-size:40px}
+.foot-brand p{margin:16px 0 0;font-size:16px;color:rgba(255,243,248,.8)}
+.foot-cols{display:flex;flex-wrap:wrap;gap:48px 96px}
+.foot-cols h4{margin:0;font-size:14px;font-weight:600;color:rgba(255,243,248,.75)}
+.foot-cols div a{display:block;margin-top:12px;font-size:16px}
+.foot-cols h4+a{margin-top:16px}
+.foot-cols a:hover{text-decoration:underline}
+.foot-wrap :focus-visible{outline-color:var(--lime)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,243,248,.16);font-size:14px;color:rgba(255,243,248,.75)}.legal a:hover{text-decoration:underline}
+.skip{position:absolute;left:12px;top:-80px;z-index:10000;padding:12px 20px;border-radius:999px;background:#2B0B24;color:#FFF3F8;font-size:15px;font-weight:600;transition:top .2s}.skip:focus{top:12px;outline:3px solid #E8FF59;outline-offset:2px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+
+
+<div class="hero">
+  <nav class="nav" aria-label="Main">
+    <a class="logo" href="index.html" aria-label="Fade home">fade</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="commands.html">Commands</a>
+        <a href="index.html#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="docs.html">Docs</a>
+      </div>
+      <a class="btn btn-plum btn-sm" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
+    </div>
+  </nav>
+
+  <main class="hero-main" id="main">
+    <h1 class="big" id="big" aria-label="404">
+      <span class="d" aria-hidden="true">4</span>
+      <canvas id="orb" aria-hidden="true"></canvas>
+      <span class="d" aria-hidden="true">4</span>
+    </h1>
+    <p class="msg fi" style="--i:0">This page faded away.</p>
+    <p class="lead fi" style="--i:1">The link may be old, or the page may never have existed. Try one of these instead.</p>
+    <ul class="go fi" style="--i:2">
+      <li><a data-magnet style="--c:var(--lime)" href="index.html">Home <span>/</span></a></li>
+      <li><a data-magnet style="--c:var(--lilac)" href="commands.html">Commands <span>/commands</span></a></li>
+      <li><a data-magnet style="--c:var(--rose)" href="docs.html">Docs <span>/docs</span></a></li>
+      <li><a data-magnet style="--c:var(--blush)" href="faq.html">FAQ <span>/faq</span></a></li>
+      <li><a data-magnet style="--c:var(--violet)" href="pricing.html">Pricing <span>/pricing</span></a></li>
+    </ul>
+  </main>
+</div>
+
+<footer class="foot-wrap">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="index.html" aria-label="Fade home">fade</a>
+        <p>The all-in-one Discord bot.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Product</h4>
+          <a href="commands.html">Commands</a>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="docs.html#antinuke">Security</a>
+          <a href="changelog.html">Changelog</a>
+        </div>
+        <div>
+          <h4>Community</h4>
+          <a href="https://discord.gg/SmdUGNXjYv">Discord</a>
+        </div>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Fade. Not affiliated with Discord Inc.</span><a href="legal.html">Terms &amp; Privacy</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id) { return document.getElementById(id); }
+
+  var fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  Promise.race([fonts, new Promise(function (r) { setTimeout(r, 1000); })]).then(function () {
+    requestAnimationFrame(function () { html.classList.add('ready'); });
+  });
+
+  /* ---------- the dot orb: it is the zero, and it fades when you reach for it ---------- */
+  var cv = $('orb'), ctx = cv.getContext('2d');
+  var N = 640, GOLD = 2.399963229728653;
+  var pts = [];
+  for (var i = 0; i < N; i++) {
+    var y = 1 - 2 * (i + 0.5) / N, r = Math.sqrt(1 - y * y), th = i * GOLD;
+    pts.push({ x: Math.cos(th) * r, y: y, z: Math.sin(th) * r, ox: 0, oy: 0, vx: 0, vy: 0, ph: Math.random() * 6.283, f: 0 });
+  }
+  var W = 0, H = 0, dpr = 1, ang = 0, spin = 0.0045, mx = -9999, my = -9999, rect = null, t0 = performance.now();
+  function size() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = cv.clientWidth, h = cv.clientHeight;
+    W = Math.max(1, Math.round(w * dpr)); H = Math.max(1, Math.round(h * dpr));
+    cv.width = W; cv.height = H; rect = cv.getBoundingClientRect();
+  }
+  function draw(now) {
+    var t = (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, H);
+    var R = Math.min(W, H) * 0.44, cx = W / 2, cy = H / 2;
+    var ca = Math.cos(ang), sa = Math.sin(ang), tilt = 0.42, ct = Math.cos(tilt), st = Math.sin(tilt);
+    var rad = R * 0.55;
+    var lx = (mx - rect.left) * dpr, ly = (my - rect.top) * dpr;
+    ctx.fillStyle = '#2B0B24';
+    for (var i = 0; i < N; i++) {
+      var p = pts[i];
+      var x1 = p.x * ca + p.z * sa, z1 = -p.x * sa + p.z * ca;
+      var y1 = p.y * ct - z1 * st, z2 = p.y * st + z1 * ct;
+      var px = cx + x1 * R, py = cy + y1 * R;
+      if (!reduce) {
+        var dx = px + p.ox - lx, dy = py + p.oy - ly, d2 = dx * dx + dy * dy;
+        if (d2 < rad * rad) {
+          var d = Math.sqrt(d2) || 1, f = (1 - d / rad);
+          p.vx += dx / d * f * R * 0.05; p.vy += dy / d * f * R * 0.05;
+          p.f = Math.min(1, p.f + f * 0.25);
+        }
+        p.vx += -p.ox * 0.05; p.vy += -p.oy * 0.05;
+        p.vx *= 0.86; p.vy *= 0.86; p.ox += p.vx; p.oy += p.vy;
+        p.f *= 0.96;
+      }
+      var depth = (z2 + 1) / 2;
+      var a = (0.22 + 0.78 * depth) * (1 - p.f * 0.75);
+      if (!reduce) a *= 0.8 + 0.2 * Math.sin(t * 1.1 + p.ph);
+      var rr = (0.7 + 2.1 * depth) * dpr * (R / 150 > 0.6 ? Math.min(R / 150, 2.4) : 0.6);
+      ctx.globalAlpha = a < 0 ? 0 : a;
+      ctx.beginPath(); ctx.arc(px + p.ox, py + p.oy, rr, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  size();
+  window.addEventListener('resize', function () { size(); if (reduce) draw(performance.now()); });
+  if (reduce) { ang = 0.6; draw(performance.now()); }
+  else {
+    window.addEventListener('pointermove', function (e) { mx = e.clientX; my = e.clientY; });
+    window.addEventListener('scroll', function () { rect = cv.getBoundingClientRect(); }, { passive: true });
+    document.addEventListener('pointerleave', function () { mx = my = -9999; });
+    (function loop(now) {
+      requestAnimationFrame(loop);
+      ang += spin; draw(now);
+    })(performance.now());
+  }
+
+  if (reduce) return;
+  var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  [].slice.call(document.querySelectorAll('[data-magnet]')).forEach(function (e) {
+    if (!fine) return;
+    e.addEventListener('pointermove', function (ev) {
+      var r = e.getBoundingClientRect();
+      e.style.transform = 'translate(' + ((ev.clientX - (r.left + r.width / 2)) * 0.25).toFixed(1) + 'px,' + ((ev.clientY - (r.top + r.height / 2)) * 0.35).toFixed(1) + 'px)';
+    });
+    e.addEventListener('pointerleave', function () { e.style.transform = ''; });
+  });
+  var blob = $('blob'), tx = -100, ty = -100, bx = -100, by = -100;
+  if (fine && blob) {
+    window.addEventListener('pointermove', function (e) {
+      tx = e.clientX; ty = e.clientY; blob.classList.add('on');
+      blob.classList.toggle('big', !!e.target.closest('a, button'));
+    });
+    document.addEventListener('pointerleave', function () { blob.classList.remove('on'); });
+    (function bl() {
+      requestAnimationFrame(bl);
+      bx += (tx - bx) * 0.2; by += (ty - by) * 0.2;
+      blob.style.transform = 'translate3d(' + bx.toFixed(1) + 'px,' + by.toFixed(1) + 'px,0)';
+    })();
+  }
+})();
+</script>
+</body>
+</html>
