@@ -14,6 +14,10 @@
 <meta name="twitter:card" content="summary">
 <script>
 (function () {
+  if (location.pathname.endsWith('.html')) {
+    var c = location.pathname.slice(0, -5);
+    history.replaceState(null, '', (c === '/index' ? '/' : c) + location.search + location.hash);
+  }
   var h = document.documentElement;
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('js');
   setTimeout(function () { h.classList.add('ready'); }, 2500);
@@ -318,11 +322,11 @@ button{font-family:inherit}
     <a class="logo" href="#top" aria-label="Fade home">fade</a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="commands.html">Commands</a>
+        <a href="commands">Commands</a>
         <a href="#features">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="docs.html">Docs</a>
+        <a href="pricing">Pricing</a>
+        <a href="faq">FAQ</a>
+        <a href="docs">Docs</a>
       </div>
       <a class="btn btn-plum btn-sm" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
     </div>
@@ -338,7 +342,7 @@ button{font-family:inherit}
       <p class="lead fi" style="--i:0">Fade is the all-in-one Discord bot for moderation, antinuke, leveling and engagement. Start free, upgrade when you grow.</p>
       <div class="hero-cta fi" style="--i:1">
         <a class="btn btn-plum" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
-        <a class="btn btn-outline" data-magnet href="commands.html">Explore commands</a>
+        <a class="btn btn-outline" data-magnet href="commands">Explore commands</a>
       </div>
       <p class="hero-note fi" style="--i:2">99.9% uptime, under 2 ms response, free to start.</p>
     </div>
@@ -446,7 +450,7 @@ button{font-family:inherit}
           <li>24/7 uninterrupted playback</li>
           <li>Advanced queue management</li>
         </ul>
-        <a class="btn btn-outline-light" style="margin-top:40px;height:52px;font-size:16px" href="commands.html#music">View music commands</a>
+        <a class="btn btn-outline-light" style="margin-top:40px;height:52px;font-size:16px" href="commands#music">View music commands</a>
       </div>
 
       <div class="player" id="player" data-ep="0">
@@ -495,7 +499,7 @@ button{font-family:inherit}
           <li>Global and server leaderboards</li>
           <li>Automated daily and weekly rewards</li>
         </ul>
-        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="commands.html#economy">View economy commands</a>
+        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="commands#economy">View economy commands</a>
       </div>
       <div class="wallet dark" id="wallet" data-ep="0">
         <div class="wallet-top">
@@ -530,7 +534,7 @@ button{font-family:inherit}
           <li>Member avatars and join positions</li>
           <li>Automated role assignment</li>
         </ul>
-        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="commands.html#welcome">View welcome commands</a>
+        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="commands#welcome">View welcome commands</a>
       </div>
     </div>
   </div>
@@ -548,7 +552,7 @@ button{font-family:inherit}
           <li>Accurate invite tracking: joins, leaves and fakes</li>
           <li>Server-wide leaderboards</li>
         </ul>
-        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="docs.html#stats">Learn about stats</a>
+        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="docs#stats">Learn about stats</a>
       </div>
       <div class="chart dark" data-ep="0">
         <div class="chart-head">
@@ -586,7 +590,7 @@ button{font-family:inherit}
           <li>Full memory control for admins</li>
           <li>No API keys required</li>
         </ul>
-        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="commands.html#utility">View AI commands</a>
+        <a class="btn btn-outline" style="margin-top:36px;height:52px;font-size:16px" href="commands#utility">View AI commands</a>
       </div>
     </div>
   </div>
@@ -630,7 +634,7 @@ button{font-family:inherit}
           <li>Higher personal rate limits</li>
         </ul>
         <div class="grow"></div>
-        <a class="btn btn-plum" data-magnet href="pricing.html#noprefix">Get No Prefix</a>
+        <a class="btn btn-plum" data-magnet href="pricing#noprefix">Get No Prefix</a>
       </article>
 
       <article class="plan p-plus dark" data-ep="2" style="--x:20px;--r:1deg">
@@ -648,7 +652,7 @@ button{font-family:inherit}
           <li>Vanity &amp; Booster Custom Roles</li>
         </ul>
         <div class="grow"></div>
-        <a class="btn btn-lime" data-magnet href="pricing.html#plus">Choose Plus</a>
+        <a class="btn btn-lime" data-magnet href="pricing#plus">Choose Plus</a>
       </article>
 
       <article class="plan p-pro" data-ep="3" style="--x:60px;--r:3deg">
@@ -667,11 +671,11 @@ button{font-family:inherit}
           <li>Weekly Community Scrapbook Canvas</li>
         </ul>
         <div class="grow"></div>
-        <a class="btn btn-plum" data-magnet href="pricing.html#pro">Choose Pro</a>
+        <a class="btn btn-plum" data-magnet href="pricing#pro">Choose Pro</a>
       </article>
     </div>
 
-    <p class="fine">Want the full picture? <a href="pricing.html" style="text-decoration:underline">Compare every feature</a>, or <a href="faq.html" style="text-decoration:underline">read the FAQ</a>.</p>
+    <p class="fine">Want the full picture? <a href="pricing" style="text-decoration:underline">Compare every feature</a>, or <a href="faq" style="text-decoration:underline">read the FAQ</a>.</p>
   </div>
 </section>
 
@@ -680,7 +684,7 @@ button{font-family:inherit}
     <h2 data-ep="0"><span class="cl cl1">Ready when</span><span class="cl cl2">you are.</span></h2>
     <div class="actions">
       <a class="btn btn-plum btn-lg cta-pulse" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
-      <a class="btn btn-outline btn-lg" data-magnet style="font-size:20px;font-weight:500" href="pricing.html">See plans</a>
+      <a class="btn btn-outline btn-lg" data-magnet style="font-size:20px;font-weight:500" href="pricing">See plans</a>
       <p>Add Fade in seconds. Start free, upgrade when you're ready.</p>
     </div>
   </div>
@@ -698,11 +702,11 @@ button{font-family:inherit}
       <div class="foot-cols">
         <div>
           <h4>Product</h4>
-          <a href="commands.html">Commands</a>
+          <a href="commands">Commands</a>
           <a href="#features">Features</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="docs.html#antinuke">Security</a>
-          <a href="changelog.html">Changelog</a>
+          <a href="pricing">Pricing</a>
+          <a href="docs#antinuke">Security</a>
+          <a href="changelog">Changelog</a>
         </div>
         <div>
           <h4>Community</h4>
@@ -710,7 +714,7 @@ button{font-family:inherit}
         </div>
       </div>
     </div>
-    <div class="legal"><span>© 2026 Fade. Not affiliated with Discord Inc.</span><a href="legal.html">Terms &amp; Privacy</a></div>
+    <div class="legal"><span>© 2026 Fade. Not affiliated with Discord Inc.</span><a href="legal">Terms &amp; Privacy</a></div>
   </div>
 </footer>
 

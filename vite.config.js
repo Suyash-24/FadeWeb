@@ -4,6 +4,20 @@ import { resolve } from 'path'
 export default defineConfig({
   root: 'src',
   publicDir: '../public',
+  plugins: [
+    {
+      name: 'clean-urls',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url && !req.url.includes('.') && req.url !== '/' && !req.url.startsWith('/@')) {
+            const [pathname, search] = req.url.split('?');
+            req.url = `${pathname}.html${search ? `?${search}` : ''}`;
+          }
+          next();
+        });
+      },
+    },
+  ],
   build: {
     outDir: '../dist',
     emptyOutDir: true,

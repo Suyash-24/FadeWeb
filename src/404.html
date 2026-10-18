@@ -15,6 +15,10 @@
 <meta name="twitter:card" content="summary">
 <script>
 (function () {
+  if (location.pathname.endsWith('.html')) {
+    var c = location.pathname.slice(0, -5);
+    history.replaceState(null, '', (c === '/index' ? '/' : c) + location.search + location.hash);
+  }
   var h = document.documentElement;
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('js');
   setTimeout(function () { h.classList.add('ready'); }, 2500);
@@ -96,14 +100,14 @@ a{color:inherit;text-decoration:none}
 
 <div class="hero">
   <nav class="nav" aria-label="Main">
-    <a class="logo" href="index.html" aria-label="Fade home">fade</a>
+    <a class="logo" href="/" aria-label="Fade home">fade</a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="commands.html">Commands</a>
-        <a href="index.html#features">Features</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="docs.html">Docs</a>
+        <a href="commands">Commands</a>
+        <a href="/#features">Features</a>
+        <a href="pricing">Pricing</a>
+        <a href="faq">FAQ</a>
+        <a href="docs">Docs</a>
       </div>
       <a class="btn btn-plum btn-sm" data-magnet href="https://discord.com/oauth2/authorize?client_id=1506951744264077424&amp;permissions=8&amp;integration_type=0&amp;scope=bot">Add to Discord</a>
     </div>
@@ -118,11 +122,11 @@ a{color:inherit;text-decoration:none}
     <p class="msg fi" style="--i:0">This page faded away.</p>
     <p class="lead fi" style="--i:1">The link may be old, or the page may never have existed. Try one of these instead.</p>
     <ul class="go fi" style="--i:2">
-      <li><a data-magnet style="--c:var(--lime)" href="index.html">Home <span>/</span></a></li>
-      <li><a data-magnet style="--c:var(--lilac)" href="commands.html">Commands <span>/commands</span></a></li>
-      <li><a data-magnet style="--c:var(--rose)" href="docs.html">Docs <span>/docs</span></a></li>
-      <li><a data-magnet style="--c:var(--blush)" href="faq.html">FAQ <span>/faq</span></a></li>
-      <li><a data-magnet style="--c:var(--violet)" href="pricing.html">Pricing <span>/pricing</span></a></li>
+      <li><a data-magnet style="--c:var(--lime)" href="/">Home <span>/</span></a></li>
+      <li><a data-magnet style="--c:var(--lilac)" href="commands">Commands <span>/commands</span></a></li>
+      <li><a data-magnet style="--c:var(--rose)" href="docs">Docs <span>/docs</span></a></li>
+      <li><a data-magnet style="--c:var(--blush)" href="faq">FAQ <span>/faq</span></a></li>
+      <li><a data-magnet style="--c:var(--violet)" href="pricing">Pricing <span>/pricing</span></a></li>
     </ul>
   </main>
 </div>
@@ -131,17 +135,17 @@ a{color:inherit;text-decoration:none}
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <a class="logo" href="index.html" aria-label="Fade home">fade</a>
+        <a class="logo" href="/" aria-label="Fade home">fade</a>
         <p>The all-in-one Discord bot.</p>
       </div>
       <div class="foot-cols">
         <div>
           <h4>Product</h4>
-          <a href="commands.html">Commands</a>
-          <a href="index.html#features">Features</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="docs.html#antinuke">Security</a>
-          <a href="changelog.html">Changelog</a>
+          <a href="commands">Commands</a>
+          <a href="/#features">Features</a>
+          <a href="pricing">Pricing</a>
+          <a href="docs#antinuke">Security</a>
+          <a href="changelog">Changelog</a>
         </div>
         <div>
           <h4>Community</h4>
@@ -149,7 +153,7 @@ a{color:inherit;text-decoration:none}
         </div>
       </div>
     </div>
-    <div class="legal"><span>© 2026 Fade. Not affiliated with Discord Inc.</span><a href="legal.html">Terms &amp; Privacy</a></div>
+    <div class="legal"><span>© 2026 Fade. Not affiliated with Discord Inc.</span><a href="legal">Terms &amp; Privacy</a></div>
   </div>
 </footer>
 
