@@ -93,7 +93,25 @@ button{color:inherit}
 .team-intro p{margin:16px 0 0;font-size:18px;line-height:1.6;color:rgba(43,11,36,.82)}
 
 /* team grid */
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:32px;align-items:stretch}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:36px;align-items:start}
+
+/* zig zag alignment on desktop screens */
+@media (min-width: 980px) {
+  .team-grid {
+    gap: 44px;
+    padding-bottom: 48px;
+  }
+  .dev-card:nth-child(even) {
+    margin-top: 64px;
+    transform: rotate(0.8deg);
+  }
+  .dev-card:nth-child(odd) {
+    transform: rotate(-0.8deg);
+  }
+  .dev-card:hover {
+    transform: translateY(-8px) rotate(0deg);
+  }
+}
 
 /* dev card */
 .dev-card{position:relative;display:flex;flex-direction:column;border-radius:36px;background:#fff;border:2px solid var(--plum);overflow:hidden;box-shadow:0 18px 48px rgba(43,11,36,.06);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
@@ -268,10 +286,10 @@ button{color:inherit}
     },
     {
       id: "1530762097213050880",
-      roleBadge: "Administrator",
+      roleBadge: "Developer & Admin",
       roleBadgeColor: "var(--lilac)",
-      cardBadge: "Operations",
-      bio: "Oversees community relations, server administration, user support, feature quality assurance, and community guidelines enforcement.",
+      cardBadge: "Core Dev",
+      bio: "Core bot developer & administrator. Contributes to bot logic, codebase improvements, command implementations, and system testing.",
       github: null,
       fallback: {
         username: "bforbillieeee",
