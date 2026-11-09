@@ -30,6 +30,8 @@ export default defineConfig({
         pricing: resolve(import.meta.dirname, 'src/pricing.html'),
         changelog: resolve(import.meta.dirname, 'src/changelog.html'),
         legal: resolve(import.meta.dirname, 'src/legal.html'),
+        developers: resolve(import.meta.dirname, 'src/developers.html'),
+        team: resolve(import.meta.dirname, 'src/team.html'),
         notfound: resolve(import.meta.dirname, 'src/404.html'),
       },
     },
